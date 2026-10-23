@@ -1914,6 +1914,7 @@ app.post(
     verificarPlatformAdmin,
     async (req, res) => {
         let conexion;
+        let transaccionActiva = false;
 
         try {
             const id = Number(req.params.id);
@@ -1937,18 +1938,20 @@ app.post(
 
             conexion = await db.getConnection();
             await conexion.beginTransaction();
+            transaccionActiva = true;
 
             const [filas] = await conexion.execute(
-    `SELECT id, user_id
-     FROM students
-     WHERE id = ?
-       AND approval_status = 'pending'
-     FOR UPDATE`,
-    [id]
-);
+                `SELECT id, user_id
+                 FROM students
+                 WHERE id = ?
+                   AND approval_status = 'pending'
+                 FOR UPDATE`,
+                [id]
+            );
 
             if (!filas.length) {
                 await conexion.rollback();
+                transaccionActiva = false;
 
                 return res.status(404).json({
                     ok: false,
@@ -1989,13 +1992,20 @@ app.post(
             );
 
             await conexion.commit();
+            transaccionActiva = false;
 
             res.json({
                 ok: true,
                 mensaje: "Inscripción rechazada, cuenta bloqueada y código de activación invalidado."
             });
         } catch (error) {
-            if (conexion) await conexion.rollback();
+            if (conexion && transaccionActiva) {
+                try {
+                    await conexion.rollback();
+                } catch (errorRollback) {
+                    console.error("Error al revertir el rechazo de inscripción:", errorRollback);
+                }
+            }
             manejarError(res, error, "Rechazando inscripción");
         } finally {
             if (conexion) conexion.release();
