@@ -18,7 +18,7 @@ Este paquete se reconstruyó a partir del ZIP que compartiste. Conserva los arch
 
 ## Base de datos
 - `backend/schema.sql` describe el esquema de una instalación nueva.
-- Si ya tenés una base de datos con información, no vuelvas a ejecutar el esquema completo a ciegas. Revisá y ejecutá la migración `backend/migrations/20261022_compatibilidad_auth_instituciones.sql` una sola vez en la base correcta.
+- Si ya tenés una base de datos con información, no vuelvas a ejecutar el esquema completo a ciegas. Hacé un respaldo y ejecutá `backend/migrations/20261022_compatibilidad_auth_instituciones.sql` en la base correcta. La migración agrega compatibilidad para NIE, aprobación de estudiantes, códigos de activación, progreso y solicitudes administrativas sin borrar tablas ni registros. Si existen NIE duplicados, revisalos antes de crear el índice único.
 - No se incluye una copia de tus datos ni credenciales reales de Aiven.
 
 ## Administración institucional
@@ -28,9 +28,14 @@ Este paquete se reconstruyó a partir del ZIP que compartiste. Conserva los arch
 - Un administrador global debe aprobar las solicitudes correspondientes desde las rutas existentes de AulaLab.
 
 ## Comprobaciones
-- Ejecutá `npm run check` dentro de `backend` para revisar sintaxis JavaScript.
+- Ejecutá `npm run check` dentro de `backend` para revisar la sintaxis de `server.js`, `database.js` y las tres rutas de backend incluidas en el proyecto.
 - `npm start` requiere variables de entorno válidas y un certificado SSL válido.
 - Este ZIP no se ha podido probar contra tu instancia real de Aiven ni contra tus cuentas. Por eso no se garantiza que todas las funciones de base de datos estén operativas hasta ejecutar las pruebas en tu entorno.
+
+## Flujo de cuentas
+- El registro público crea cuentas docentes pendientes de aprobación; el panel global debe aprobarlas antes de permitir el inicio de sesión.
+- Las cuentas estudiantiles se inscriben desde una institución, esperan la aprobación de la inscripción y después se activan con el NIE y el código de activación.
+- El acceso al panel institucional se determina por una membresía activa con rol `institution_admin`, aunque el rol global de la persona siga siendo `teacher`.
 
 ## Seguridad
 No guardes contraseñas, JWT secrets ni credenciales de correo en archivos públicos. Cambiá cualquier secreto que se haya compartido accidentalmente.
