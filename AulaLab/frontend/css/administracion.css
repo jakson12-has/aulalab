@@ -139,9 +139,13 @@
   margin-top: 0;
 }
 
-.pagina-admin-institucion .tarjeta-admin > h2 {
+.pagina-admin-institucion .tarjeta-admin h2 {
   margin: 0 0 10px;
   font-size: 21px;
+}
+
+.pagina-admin-institucion .bloque-institucion .campo label {
+  margin-bottom: 9px;
 }
 
 .pagina-admin-institucion .form-label {
