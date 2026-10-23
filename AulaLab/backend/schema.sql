@@ -128,6 +128,8 @@ CREATE TABLE IF NOT EXISTS students (
     middle_name VARCHAR(100),
     sex ENUM('F','M','O','N') NULL,
     approval_status ENUM('pending','approved','rejected') NOT NULL DEFAULT 'pending',
+    reviewed_by INT NULL,
+    reviewed_at DATETIME NULL,
     rejection_reason TEXT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id),
@@ -147,6 +149,36 @@ CREATE TABLE IF NOT EXISTS teachers (
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (institution_id) REFERENCES institutions(id)
       ON DELETE SET NULL
+ ) ENGINE=InnoDB;
+
+-- Códigos de activación de estudiantes. Se almacena solo el hash del código.
+CREATE TABLE IF NOT EXISTS student_activation_codes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    code_hash CHAR(64) NOT NULL,
+    expires_at DATETIME NOT NULL,
+    used_at DATETIME NULL,
+    attempts INT NOT NULL DEFAULT 0,
+    locked_until DATETIME NULL,
+    created_by INT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE KEY uq_student_activation_user (user_id),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (created_by) REFERENCES users(id) ON DELETE SET NULL
+) ENGINE=InnoDB;
+
+-- Progreso guardado de actividades educativas.
+CREATE TABLE IF NOT EXISTS student_activity_progress (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT NOT NULL,
+    activity_key VARCHAR(100) NOT NULL,
+    progress_percentage TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    main_progress JSON NOT NULL,
+    extra_progress JSON NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    UNIQUE KEY uq_student_activity_progress (student_id, activity_key),
+    FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
 -- =========================================================
@@ -752,6 +784,22 @@ ORDER BY module, name;
 
 -- FIN DE AULALAB
 
+
+-- =========================================================
+-- SOLICITUDES DE ACCESO ADMINISTRATIVO
+-- =========================================================
+CREATE TABLE IF NOT EXISTS admin_access_requests (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    requester_user_id INT NOT NULL,
+    justification TEXT NOT NULL,
+    status ENUM('pending','approved','rejected') NOT NULL DEFAULT 'pending',
+    reviewed_by INT NULL,
+    reviewed_at DATETIME NULL,
+    rejection_reason TEXT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (requester_user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (reviewed_by) REFERENCES users(id) ON DELETE SET NULL
+) ENGINE=InnoDB;
 
 -- =========================================================
 -- SOLICITUDES DE ADMINISTRACIÓN DE INSTITUCIONES
