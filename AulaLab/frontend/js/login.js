@@ -70,12 +70,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const rol = String(datos.usuario.rol).toLowerCase();
 
+            const tieneAdministracionInstitucional =
+                Array.isArray(datos.instituciones) &&
+                datos.instituciones.some(
+                    institucion =>
+                        String(institucion.rol).toLowerCase() === "institution_admin" &&
+                        Number(institucion.is_active) === 1
+                );
+
             if (rol === "platform_admin") {
                 window.location.href = "admin-global.html";
+            } else if (
+                rol === "institution_admin" ||
+                tieneAdministracionInstitucional
+            ) {
+                window.location.href = "admin-institucion.html";
             } else if (rol === "teacher") {
                 window.location.href = "docente.html";
-            } else if (rol === "institution_admin") {
-                window.location.href = "admin-institucion.html";
             } else {
                 window.location.href = "inicio.html";
             }
