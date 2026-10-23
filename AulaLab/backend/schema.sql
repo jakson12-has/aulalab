@@ -39,7 +39,8 @@ CREATE TABLE IF NOT EXISTS role_permissions (
 
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(150) NOT NULL UNIQUE,
+    email VARCHAR(150) NULL UNIQUE,
+    student_nie VARCHAR(30) NULL UNIQUE,
     password_hash VARCHAR(255) NOT NULL,
     first_name VARCHAR(100),
     last_name VARCHAR(100),
@@ -47,6 +48,9 @@ CREATE TABLE IF NOT EXISTS users (
     avatar_url TEXT,
     is_active TINYINT(1) NOT NULL DEFAULT 1,
     approval_status ENUM('pending','approved','rejected') NOT NULL DEFAULT 'approved',
+    approved_by INT NULL,
+    approved_at DATETIME NULL,
+    rejection_reason TEXT NULL,
     last_login DATETIME,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -114,15 +118,22 @@ CREATE TABLE IF NOT EXISTS students (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL UNIQUE,
     institution_id INT,
+    registered_by INT NULL,
     student_code VARCHAR(50),
     grade_level VARCHAR(50),
     section VARCHAR(50),
     birth_date DATE,
     guardian_name VARCHAR(150),
     guardian_phone VARCHAR(30),
+    middle_name VARCHAR(100),
+    sex ENUM('F','M','O','N') NULL,
+    approval_status ENUM('pending','approved','rejected') NOT NULL DEFAULT 'pending',
+    rejection_reason TEXT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (institution_id) REFERENCES institutions(id)
+      ON DELETE SET NULL,
+    FOREIGN KEY (registered_by) REFERENCES users(id)
       ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
