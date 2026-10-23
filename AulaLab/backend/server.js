@@ -10,6 +10,7 @@ const db = require("./database");
 const registrarRutasEstudiantes = require("./rutas-estudiantes");
 const registrarRutasProgreso = require("./rutas-progreso");
 const registrarRutasAsignaciones = require("./rutas-asignaciones");
+const registrarRutasInstituciones = require("./rutas-instituciones");
 const nodemailer = require("nodemailer");
 
 const app = express();
@@ -89,6 +90,7 @@ function manejarError(res, error, contexto) {
 registrarRutasEstudiantes({ app, db, verificarToken });
 registrarRutasProgreso({ app, db, verificarToken });
 registrarRutasAsignaciones({ app, db, verificarToken });
+registrarRutasInstituciones({ app, db, verificarToken });
 
 async function enviarCorreoAprobacion(destinatario) {
     if (
