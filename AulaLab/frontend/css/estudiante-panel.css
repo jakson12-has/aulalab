@@ -1,0 +1,1375 @@
+/* ==========================================
+   AULALAB — PANEL DEL ESTUDIANTE
+   Tema oscuro, azul eléctrico y cian
+   ========================================== */
+
+.pagina-estudiante {
+    --panel-fondo: #070b18;
+    --panel-superficie: #0d1626;
+    --panel-elevada: #111f33;
+    --panel-borde: #23324a;
+    --panel-texto: #edf4ff;
+    --panel-muted: #9aaac3;
+    --panel-azul: #168bff;
+    --panel-cian: #55d9ff;
+    --panel-verde: #51d6a0;
+
+    min-height: 100vh;
+    background: var(--panel-fondo);
+    color: var(--panel-texto);
+}
+
+.pagina-estudiante * {
+    box-sizing: border-box;
+}
+
+.pagina-estudiante a {
+    text-decoration: none;
+}
+
+.panel-estudiante {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+}
+
+.barra-lateral {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 17px;
+    background: #091221;
+    border-right: 1px solid var(--panel-borde);
+    z-index: 30;
+}
+
+.marca-estudiante {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    margin-bottom: 48px;
+    color: var(--panel-texto);
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.marca-estudiante .marca-icono {
+    flex: 0 0 43px;
+}
+
+.etiqueta-menu {
+    padding: 0 12px;
+    margin-bottom: 12px;
+    color: #71839e;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.menu-estudiante {
+    display: grid;
+    gap: 7px;
+}
+
+.elemento-menu {
+    min-height: 47px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 13px;
+    border: 1px solid transparent;
+    border-radius: 11px;
+    color: #9aaac3 !important;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background .2s, color .2s, border-color .2s;
+}
+
+.elemento-menu:hover,
+.elemento-menu.activo {
+    color: #eaf7ff !important;
+    background: linear-gradient(90deg, #122c49, #10233a);
+    border-color: #1a4165;
+}
+
+.elemento-menu.activo {
+    box-shadow: inset 3px 0 #55d9ff;
+}
+
+.icono-menu {
+    width: 23px;
+    text-align: center;
+    color: var(--panel-cian);
+    font-size: 21px;
+}
+
+.ayuda-lateral {
+    margin-top: auto;
+    padding: 18px;
+    border: 1px solid #1c3552;
+    border-radius: 15px;
+    background:
+        radial-gradient(circle at top right, #173b60, transparent 65%),
+        #0d1b2d;
+}
+
+.ayuda-icono {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 13px;
+    border-radius: 10px;
+    background: #153d5d;
+    color: var(--panel-cian);
+    font-size: 20px;
+}
+
+.ayuda-lateral h3 {
+    margin: 0 0 7px;
+    color: #f1f7ff;
+    font-size: 14px;
+}
+
+.ayuda-lateral p {
+    margin: 0;
+    color: #9db1cb;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.boton-cerrar-sesion {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 12px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background: transparent;
+    color: #a5b5cb;
+    text-align: left;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.boton-cerrar-sesion:hover {
+    color: #ffb8bf;
+    background: #291722;
+    border-color: #512735;
+}
+
+.boton-cerrar-sesion span {
+    font-size: 21px;
+}
+
+.contenido-estudiante {
+    min-width: 0;
+}
+
+.encabezado-estudiante {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px 36px;
+    border-bottom: 1px solid var(--panel-borde);
+    background: rgb(9 17 31 / 88%);
+}
+
+.ruta-actual {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #8295b0;
+    font-size: 13px;
+}
+
+.ruta-actual strong {
+    color: #e9f2ff;
+}
+
+.separador-ruta {
+    color: #536983;
+}
+
+.usuario-encabezado {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.avatar-estudiante,
+.avatar-perfil {
+    display: grid;
+    flex: 0 0 auto;
+    place-items: center;
+    border: 1px solid #2979b4;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #1678cb, #16427a);
+    color: #fff;
+    font-weight: 800;
+}
+
+.avatar-estudiante {
+    width: 41px;
+    height: 41px;
+}
+
+.datos-encabezado {
+    display: grid;
+    gap: 2px;
+}
+
+.datos-encabezado strong {
+    max-width: 190px;
+    overflow: hidden;
+    color: #eaf2ff;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.datos-encabezado span {
+    color: var(--panel-muted);
+    font-size: 11px;
+}
+
+.boton-menu-movil {
+    display: none;
+    border: 1px solid var(--panel-borde);
+    border-radius: 9px;
+    background: var(--panel-superficie);
+    color: white;
+    padding: 8px 11px;
+    cursor: pointer;
+}
+
+.contenido-principal {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 30px 36px;
+}
+
+.mensaje-panel {
+    margin-bottom: 20px;
+    padding: 12px 15px;
+    border: 1px solid #244a70;
+    border-radius: 10px;
+    background: #0c2036;
+    color: #c4e7ff;
+    font-size: 13px;
+}
+
+.mensaje-panel.error {
+    border-color: #713440;
+    background: #2a1721;
+    color: #ffc6ce;
+}
+
+.mensaje-panel[hidden] {
+    display: none;
+}
+
+.bienvenida-estudiante {
+    position: relative;
+    min-height: 265px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    overflow: hidden;
+    padding: 36px 42px;
+    border: 1px solid #214568;
+    border-radius: 20px;
+    background:
+        radial-gradient(ellipse at 80% 40%, #123e69 0, transparent 42%),
+        linear-gradient(115deg, #0e1d33, #0c2948 65%, #10233e);
+}
+
+.bienvenida-texto {
+    position: relative;
+    z-index: 2;
+    max-width: 620px;
+}
+
+.sobrelinea {
+    display: block;
+    color: var(--panel-cian);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+.bienvenida-estudiante h1 {
+    margin: 13px 0 12px;
+    color: #f4f8ff;
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.2;
+    letter-spacing: -1.2px;
+    overflow-wrap: anywhere;
+}
+
+.bienvenida-estudiante p {
+    max-width: 490px;
+    margin: 0 0 23px;
+    color: #afc3df;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.boton-explorar {
+    min-height: 43px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 11px 17px;
+    border: 1px solid #238df0;
+    border-radius: 10px;
+    background: linear-gradient(110deg, #0878df, #1267b5);
+    color: #fff !important;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform .2s, filter .2s;
+}
+
+.boton-explorar:hover {
+    filter: brightness(1.15);
+    transform: translateY(-1px);
+}
+
+.boton-explorar span {
+    font-size: 19px;
+}
+
+.ilustracion-ciencia {
+    position: relative;
+    flex: 0 0 225px;
+    width: 225px;
+    height: 200px;
+    display: grid;
+    place-items: center;
+}
+
+.orbita {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border: 1px solid rgb(85 217 255 / 22%);
+    border-radius: 50%;
+}
+
+.orbita-uno {
+    transform: rotateX(62deg) rotate(-24deg) scale(1.15);
+}
+
+.orbita-dos {
+    transform: rotateX(62deg) rotate(45deg) scale(1.15);
+}
+
+.planeta-ciencia {
+    width: 90px;
+    height: 90px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #54d7ff;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 25%, #319de8, #113c72 70%);
+    box-shadow: 0 0 50px #168bff45;
+    color: #fff;
+    font-size: 36px;
+}
+
+.simbolo-ciencia {
+    position: absolute;
+    width: 39px;
+    height: 39px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #295477;
+    border-radius: 12px;
+    background: #102a46;
+    color: var(--panel-cian);
+    font-size: 21px;
+}
+
+.simbolo-uno {
+    top: 10px;
+    right: 20px;
+}
+
+.simbolo-dos {
+    bottom: 10px;
+    left: 16px;
+}
+
+.simbolo-tres {
+    top: 18px;
+    left: 20px;
+    color: #7bebb7;
+}
+
+.seccion-panel {
+    margin-top: 37px;
+    scroll-margin-top: 25px;
+}
+
+.titulo-seccion {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 19px;
+}
+
+.titulo-seccion h2 {
+    margin: 6px 0 5px;
+    color: #edf4ff;
+    font-size: 23px;
+    letter-spacing: -.5px;
+}
+
+.titulo-seccion p {
+    margin: 0;
+    color: var(--panel-muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.contador-laboratorios {
+    padding: 7px 10px;
+    border: 1px solid #25415d;
+    border-radius: 8px;
+    background: #0d1a2b;
+    color: #9dc6e8;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+.rejilla-laboratorios {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.tarjeta-laboratorio {
+    position: relative;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px;
+    overflow: hidden;
+    border: 1px solid var(--panel-borde);
+    border-radius: 17px;
+    background: linear-gradient(145deg, #101c2f, #0b1423);
+    transition: transform .2s, border-color .2s;
+}
+
+.tarjeta-laboratorio:hover {
+    transform: translateY(-3px);
+    border-color: #365878;
+}
+
+.tarjeta-electronica {
+    background:
+        radial-gradient(circle at 100% 0%, #123c5c80, transparent 45%),
+        linear-gradient(145deg, #101c2f, #0b1423);
+}
+
+.tarjeta-quimica {
+    background:
+        radial-gradient(circle at 100% 0%, #15433c80, transparent 45%),
+        linear-gradient(145deg, #101c2f, #0b1423);
+}
+
+.cabecera-tarjeta {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 23px;
+}
+
+.icono-laboratorio {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    flex: 0 0 auto;
+    place-items: center;
+    border-radius: 15px;
+    font-size: 27px;
+}
+
+.icono-electronica {
+    border: 1px solid #28618a;
+    background: #113250;
+    color: #66c9ff;
+}
+
+.icono-quimica {
+    border: 1px solid #276a5c;
+    background: #10352f;
+    color: #6fe0ba;
+}
+
+.etiqueta-laboratorio {
+    color: #829bb8;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-align: right;
+}
+
+.tarjeta-laboratorio h3 {
+    margin: 0 0 10px;
+    color: #eff6ff;
+    font-size: 19px;
+    line-height: 1.45;
+}
+
+.tarjeta-laboratorio > p {
+    min-height: 64px;
+    margin: 0 0 17px;
+    color: #9eb0c9;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.etiquetas-tema {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 24px;
+}
+
+.etiquetas-tema span {
+    padding: 6px 9px;
+    border: 1px solid #263d57;
+    border-radius: 7px;
+    background: #101e31;
+    color: #b3c6df;
+    font-size: 10px;
+}
+
+.boton-laboratorio {
+    width: 100%;
+    min-height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: auto;
+    padding: 10px 13px;
+    border: 1px solid #294969;
+    border-radius: 9px;
+    background: #102640;
+    color: #d8eeff;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s, border-color .2s;
+}
+
+.boton-laboratorio:hover {
+    border-color: #4389b9;
+    background: #153451;
+}
+
+.boton-laboratorio span {
+    color: var(--panel-cian);
+    font-size: 19px;
+}
+
+.tarjeta-aprendizaje,
+.tarjeta-perfil {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    padding: 22px;
+    border: 1px solid var(--panel-borde);
+    border-radius: 15px;
+    background: var(--panel-superficie);
+}
+
+.aprendizaje-icono {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    flex: 0 0 auto;
+    place-items: center;
+    border: 1px solid #304a70;
+    border-radius: 13px;
+    background: #142844;
+    color: #74caff;
+    font-size: 23px;
+}
+
+.aprendizaje-texto {
+    flex: 1;
+    min-width: 0;
+}
+
+.aprendizaje-texto h3 {
+    margin: 0 0 6px;
+    color: #edf4ff;
+    font-size: 14px;
+}
+
+.aprendizaje-texto p {
+    margin: 0;
+    color: var(--panel-muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.estado-progreso {
+    padding: 7px 10px;
+    border: 1px solid #2c4c60;
+    border-radius: 8px;
+    background: #112538;
+    color: #91c9e9;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+.avatar-perfil {
+    width: 58px;
+    height: 58px;
+    font-size: 21px;
+}
+
+.informacion-perfil {
+    flex: 1;
+    min-width: 0;
+}
+
+.informacion-perfil h3 {
+    margin: 0 0 4px;
+    color: #edf4ff;
+    font-size: 15px;
+    overflow-wrap: anywhere;
+}
+
+.informacion-perfil p {
+    margin: 0 0 9px;
+    color: var(--panel-muted);
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.insignia-rol {
+    display: inline-block;
+    padding: 5px 8px;
+    border: 1px solid #254969;
+    border-radius: 7px;
+    background: #10253c;
+    color: #9ed8ff;
+    font-size: 10px;
+}
+
+.institucion-perfil {
+    max-width: 230px;
+    display: grid;
+    gap: 6px;
+    padding-left: 20px;
+    border-left: 1px solid var(--panel-borde);
+}
+
+.institucion-perfil span {
+    color: #8296b0;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.institucion-perfil strong {
+    color: #dceaff;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.pie-estudiante {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--panel-borde);
+    color: #7488a3;
+    font-size: 10px;
+}
+
+.punto-conexion {
+    width: 7px;
+    height: 7px;
+    display: inline-block;
+    margin-right: 6px;
+    border-radius: 50%;
+    background: var(--panel-verde);
+    box-shadow: 0 0 8px #51d6a066;
+}
+
+.fondo-menu-movil {
+    display: none;
+}
+
+.modal-laboratorio {
+    position: fixed;
+    z-index: 100;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgb(2 7 16 / 78%);
+    backdrop-filter: blur(7px);
+}
+
+.modal-laboratorio[hidden] {
+    display: none;
+}
+
+.contenido-modal {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    padding: 30px;
+    border: 1px solid #2b4b6b;
+    border-radius: 18px;
+    background: #0d192b;
+    box-shadow: 0 24px 80px #0008;
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 13px;
+    right: 14px;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #2b3d55;
+    border-radius: 9px;
+    background: #101f33;
+    color: #d8e9ff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-icono {
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 20px;
+    border: 1px solid #2c6389;
+    border-radius: 15px;
+    background: #112e49;
+    color: var(--panel-cian);
+    font-size: 28px;
+}
+
+.contenido-modal h2 {
+    margin: 9px 0 12px;
+    color: #f0f7ff;
+    font-size: 24px;
+    line-height: 1.35;
+}
+
+.contenido-modal > p {
+    color: #aebfd5;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.aviso-modal {
+    display: flex;
+    gap: 11px;
+    margin: 20px 0;
+    padding: 13px;
+    border: 1px solid #294662;
+    border-radius: 10px;
+    background: #102238;
+    color: #b4d9f6;
+}
+
+.aviso-modal > span {
+    color: var(--panel-cian);
+}
+
+.aviso-modal p {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.boton-modal {
+    width: 100%;
+}
+
+body.modal-abierto {
+    overflow: hidden;
+}
+
+@media (max-width: 1050px) {
+    .panel-estudiante {
+        grid-template-columns: 220px minmax(0, 1fr);
+    }
+
+    .barra-lateral {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .encabezado-estudiante {
+        padding-right: 23px;
+        padding-left: 23px;
+    }
+
+    .contenido-principal {
+        padding: 25px 23px;
+    }
+
+    .bienvenida-estudiante {
+        padding: 30px;
+    }
+
+    .ilustracion-ciencia {
+        flex-basis: 165px;
+        transform: scale(.85);
+    }
+}
+
+@media (max-width: 760px) {
+    .panel-estudiante {
+        display: block;
+    }
+
+    .barra-lateral {
+        position: fixed;
+        z-index: 60;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: min(285px, 84vw);
+        height: 100dvh;
+        overflow-y: auto;
+        transform: translateX(-105%);
+        transition: transform .25s ease;
+        box-shadow: 15px 0 45px #0005;
+    }
+
+    .barra-lateral.menu-abierto {
+        transform: translateX(0);
+    }
+
+    .fondo-menu-movil.visible {
+        position: fixed;
+        z-index: 50;
+        inset: 0;
+        display: block;
+        background: #020711a8;
+    }
+
+    .encabezado-estudiante {
+        min-height: 68px;
+        gap: 12px;
+        padding: 12px 16px;
+    }
+
+    .boton-menu-movil {
+        display: block;
+        flex: 0 0 auto;
+    }
+
+    .ruta-actual {
+        flex: 1;
+        gap: 6px;
+        font-size: 11px;
+    }
+
+    .usuario-encabezado {
+        gap: 0;
+    }
+
+    .datos-encabezado {
+        display: none;
+    }
+
+    .avatar-estudiante {
+        width: 37px;
+        height: 37px;
+    }
+
+    .contenido-principal {
+        padding: 20px 15px;
+    }
+
+    .bienvenida-estudiante {
+        min-height: 0;
+        padding: 27px 23px;
+    }
+
+    .bienvenida-estudiante h1 {
+        font-size: 29px;
+    }
+
+    .bienvenida-estudiante p {
+        font-size: 12px;
+    }
+
+    .ilustracion-ciencia {
+        position: absolute;
+        top: 8px;
+        right: -76px;
+        opacity: .22;
+        pointer-events: none;
+    }
+
+    .bienvenida-texto {
+        max-width: 100%;
+    }
+
+    .seccion-panel {
+        margin-top: 29px;
+    }
+
+    .titulo-seccion h2 {
+        font-size: 21px;
+    }
+
+    .rejilla-laboratorios {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .tarjeta-laboratorio {
+        padding: 21px;
+    }
+
+    .tarjeta-laboratorio > p {
+        min-height: 0;
+    }
+
+    .tarjeta-aprendizaje {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 17px;
+    }
+
+    .aprendizaje-texto {
+        flex-basis: calc(100% - 70px);
+    }
+
+    .estado-progreso {
+        margin-left: 65px;
+    }
+
+    .tarjeta-perfil {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 17px;
+    }
+
+    .institucion-perfil {
+        flex-basis: 100%;
+        max-width: none;
+        margin-top: 8px;
+        padding: 14px 0 0;
+        border-top: 1px solid var(--panel-borde);
+        border-left: 0;
+    }
+
+    .pie-estudiante {
+        margin-top: 28px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pagina-estudiante *,
+    .pagina-estudiante *::before,
+    .pagina-estudiante *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+    }
+}
+
+/* =====================================================
+   AULALAB — ANIMACIONES FUTURISTAS DEL ESTUDIANTE
+   Capa adicional: conserva los estilos existentes
+===================================================== */
+
+.pagina-estudiante {
+    --animacion-suave: cubic-bezier(.22, 1, .36, 1);
+    --duracion-ui: 320ms;
+    --brillo-cian: rgb(85 217 255 / 22%);
+}
+
+/* Entrada inicial del contenido */
+@keyframes aulaEntrada {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes aulaEntradaLateral {
+    from {
+        opacity: 0;
+        transform: translateX(-14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes aulaPulsoLuz {
+    0%, 100% {
+        box-shadow: 0 0 22px rgb(22 139 255 / 20%);
+    }
+    50% {
+        box-shadow: 0 0 38px rgb(85 217 255 / 38%);
+    }
+}
+
+@keyframes aulaFlotar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes aulaGiroOrbita {
+    from {
+        rotate: 0deg;
+    }
+    to {
+        rotate: 360deg;
+    }
+}
+
+/* Aparición inicial por niveles */
+.pagina-estudiante .barra-lateral {
+    animation: aulaEntradaLateral 650ms var(--animacion-suave) both;
+}
+
+.pagina-estudiante .encabezado-estudiante {
+    animation: aulaEntrada 550ms var(--animacion-suave) both;
+}
+
+.pagina-estudiante .bienvenida-estudiante {
+    animation: aulaEntrada 700ms 80ms var(--animacion-suave) both;
+}
+
+.pagina-estudiante .bienvenida-texto > * {
+    animation: aulaEntrada 550ms var(--animacion-suave) both;
+}
+
+.pagina-estudiante .bienvenida-texto > :nth-child(1) {
+    animation-delay: 100ms;
+}
+
+.pagina-estudiante .bienvenida-texto > :nth-child(2) {
+    animation-delay: 180ms;
+}
+
+.pagina-estudiante .bienvenida-texto > :nth-child(3) {
+    animation-delay: 260ms;
+}
+
+.pagina-estudiante .bienvenida-texto > :nth-child(4) {
+    animation-delay: 340ms;
+}
+
+/* Ilustración científica viva */
+.pagina-estudiante .planeta-ciencia {
+    animation: aulaPulsoLuz 4s ease-in-out infinite;
+    transition:
+        transform var(--duracion-ui) var(--animacion-suave),
+        box-shadow var(--duracion-ui) ease;
+}
+
+.pagina-estudiante .ilustracion-ciencia:hover .planeta-ciencia {
+    transform: scale(1.08);
+    box-shadow: 0 0 52px rgb(85 217 255 / 48%);
+}
+
+.pagina-estudiante .orbita-uno {
+    animation: aulaGiroOrbita 24s linear infinite;
+}
+
+.pagina-estudiante .orbita-dos {
+    animation: aulaGiroOrbita 30s linear infinite reverse;
+}
+
+.pagina-estudiante .simbolo-ciencia {
+    box-shadow: 0 5px 18px rgb(0 0 0 / 16%);
+    transition:
+        transform var(--duracion-ui) var(--animacion-suave),
+        border-color var(--duracion-ui) ease,
+        box-shadow var(--duracion-ui) ease;
+}
+
+.pagina-estudiante .ilustracion-ciencia:hover .simbolo-ciencia {
+    border-color: var(--panel-cian);
+    box-shadow: 0 0 18px rgb(85 217 255 / 20%);
+}
+
+.pagina-estudiante .simbolo-uno {
+    animation: aulaFlotar 4s ease-in-out infinite;
+}
+
+.pagina-estudiante .simbolo-dos {
+    animation: aulaFlotar 4.8s 400ms ease-in-out infinite;
+}
+
+.pagina-estudiante .simbolo-tres {
+    animation: aulaFlotar 3.8s 700ms ease-in-out infinite;
+}
+
+/* Tarjetas: profundidad, luz y respuesta al cursor */
+.pagina-estudiante .tarjeta-laboratorio,
+.pagina-estudiante .tarjeta-aprendizaje,
+.pagina-estudiante .tarjeta-perfil {
+    position: relative;
+    isolation: isolate;
+    transition:
+        transform 360ms var(--animacion-suave),
+        border-color 300ms ease,
+        box-shadow 360ms ease,
+        background-color 300ms ease;
+}
+
+.pagina-estudiante .tarjeta-laboratorio::before,
+.pagina-estudiante .tarjeta-aprendizaje::before,
+.pagina-estudiante .tarjeta-perfil::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: radial-gradient(
+        circle at 50% 0%,
+        rgb(85 217 255 / 9%),
+        transparent 68%
+    );
+    opacity: 0;
+    transition: opacity 350ms ease;
+    pointer-events: none;
+}
+
+.pagina-estudiante .tarjeta-laboratorio:hover,
+.pagina-estudiante .tarjeta-aprendizaje:hover,
+.pagina-estudiante .tarjeta-perfil:hover {
+    transform: translateY(-5px);
+    border-color: rgb(85 217 255 / 58%);
+    box-shadow:
+        0 15px 36px rgb(0 0 0 / 20%),
+        0 0 0 1px rgb(85 217 255 / 7%);
+}
+
+.pagina-estudiante .tarjeta-laboratorio:hover::before,
+.pagina-estudiante .tarjeta-aprendizaje:hover::before,
+.pagina-estudiante .tarjeta-perfil:hover::before {
+    opacity: 1;
+}
+
+.pagina-estudiante .tarjeta-laboratorio:nth-child(2) {
+    animation-delay: 120ms;
+}
+
+.pagina-estudiante .icono-laboratorio {
+    transition:
+        transform 350ms var(--animacion-suave),
+        box-shadow 350ms ease;
+}
+
+.pagina-estudiante .tarjeta-laboratorio:hover .icono-laboratorio {
+    transform: translateY(-3px) rotate(-4deg) scale(1.06);
+    box-shadow: 0 0 24px rgb(85 217 255 / 16%);
+}
+
+/* Menú lateral interactivo */
+.pagina-estudiante .elemento-menu {
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 260ms var(--animacion-suave),
+        background 260ms ease,
+        color 260ms ease,
+        border-color 260ms ease,
+        box-shadow 260ms ease;
+}
+
+.pagina-estudiante .elemento-menu:hover {
+    transform: translateX(4px);
+}
+
+.pagina-estudiante .elemento-menu .icono-menu {
+    display: inline-block;
+    transition: transform 260ms var(--animacion-suave);
+}
+
+.pagina-estudiante .elemento-menu:hover .icono-menu {
+    transform: scale(1.12);
+}
+
+/* Botones: movimiento corto y respuesta al presionar */
+.pagina-estudiante .boton-explorar,
+.pagina-estudiante .boton-laboratorio,
+.pagina-estudiante .boton-menu-movil,
+.pagina-estudiante .boton-cerrar-sesion,
+.pagina-estudiante [data-cambiar-tema] {
+    transition:
+        transform 240ms var(--animacion-suave),
+        filter 240ms ease,
+        box-shadow 240ms ease,
+        background-color 240ms ease,
+        border-color 240ms ease;
+}
+
+.pagina-estudiante .boton-explorar:hover,
+.pagina-estudiante .boton-laboratorio:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 22px rgb(22 139 255 / 22%);
+}
+
+.pagina-estudiante .boton-explorar:active,
+.pagina-estudiante .boton-laboratorio:active,
+.pagina-estudiante .boton-menu-movil:active,
+.pagina-estudiante [data-cambiar-tema]:active {
+    transform: scale(.97);
+}
+
+.pagina-estudiante .boton-menu-movil:hover,
+.pagina-estudiante [data-cambiar-tema]:hover {
+    border-color: var(--panel-cian);
+    box-shadow: 0 0 18px rgb(85 217 255 / 12%);
+}
+
+/* Avatar */
+.pagina-estudiante .avatar-estudiante,
+.pagina-estudiante .avatar-perfil {
+    transition:
+        transform 300ms var(--animacion-suave),
+        box-shadow 300ms ease;
+}
+
+.pagina-estudiante .avatar-estudiante:hover,
+.pagina-estudiante .avatar-perfil:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 22px rgb(85 217 255 / 25%);
+}
+
+/* Modal: respeta el atributo hidden de JavaScript */
+.pagina-estudiante .modal-laboratorio[hidden] {
+    display: none !important;
+}
+
+.pagina-estudiante .modal-laboratorio:not([hidden]) {
+    animation: aulaEntrada 260ms var(--animacion-suave) both;
+}
+
+.pagina-estudiante .modal-laboratorio:not([hidden]) .contenido-modal {
+    animation: aulaEntrada 360ms var(--animacion-suave) both;
+}
+
+.pagina-estudiante .contenido-modal {
+    transition:
+        border-color 250ms ease,
+        box-shadow 250ms ease;
+}
+
+.pagina-estudiante .contenido-modal:hover {
+    border-color: rgb(85 217 255 / 38%);
+    box-shadow: 0 18px 60px rgb(0 0 0 / 30%);
+}
+
+.pagina-estudiante .cerrar-modal {
+    transition:
+        transform 240ms var(--animacion-suave),
+        background-color 240ms ease;
+}
+
+.pagina-estudiante .cerrar-modal:hover {
+    transform: rotate(90deg);
+}
+
+/* Navegación por secciones */
+.pagina-estudiante .seccion-panel {
+    scroll-margin-top: 28px;
+}
+
+.pagina-estudiante .seccion-panel:target {
+    animation: aulaEntrada 450ms var(--animacion-suave) both;
+}
+
+.pagina-estudiante .elemento-menu:focus-visible,
+.pagina-estudiante .boton-explorar:focus-visible,
+.pagina-estudiante .boton-laboratorio:focus-visible {
+    outline: 3px solid var(--panel-cian);
+    outline-offset: 4px;
+}
+
+/* Modo claro: conserva contraste y efectos */
+:root[data-tema="claro"] .pagina-estudiante .tarjeta-laboratorio:hover,
+:root[data-tema="claro"] .pagina-estudiante .tarjeta-aprendizaje:hover,
+:root[data-tema="claro"] .pagina-estudiante .tarjeta-perfil:hover {
+    box-shadow:
+        0 14px 32px rgb(27 62 100 / 12%),
+        0 0 0 1px rgb(22 139 255 / 10%);
+}
+
+/* Dispositivos táctiles: evita depender del hover */
+@media (hover: none) {
+    .pagina-estudiante .tarjeta-laboratorio:hover,
+    .pagina-estudiante .tarjeta-aprendizaje:hover,
+    .pagina-estudiante .tarjeta-perfil:hover {
+        transform: none;
+    }
+
+    .pagina-estudiante .elemento-menu:hover {
+        transform: none;
+    }
+}
+
+/* Accesibilidad: respetar preferencias del sistema */
+@media (prefers-reduced-motion: reduce) {
+    .pagina-estudiante .barra-lateral,
+    .pagina-estudiante .encabezado-estudiante,
+    .pagina-estudiante .bienvenida-estudiante,
+    .pagina-estudiante .bienvenida-texto > *,
+    .pagina-estudiante .planeta-ciencia,
+    .pagina-estudiante .orbita,
+    .pagina-estudiante .simbolo-ciencia,
+    .pagina-estudiante .modal-laboratorio:not([hidden]),
+    .pagina-estudiante .modal-laboratorio:not([hidden]) .contenido-modal,
+    .pagina-estudiante .seccion-panel:target {
+        animation: none !important;
+    }
+
+    .pagina-estudiante .tarjeta-laboratorio,
+    .pagina-estudiante .tarjeta-aprendizaje,
+    .pagina-estudiante .tarjeta-perfil,
+    .pagina-estudiante .elemento-menu,
+    .pagina-estudiante .boton-explorar,
+    .pagina-estudiante .boton-laboratorio {
+        transition: none !important;
+    }
+}
+

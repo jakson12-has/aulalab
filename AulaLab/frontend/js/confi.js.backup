@@ -1,0 +1,28 @@
+"use strict";
+
+(() => {
+    const hostname = window.location.hostname;
+    let apiBase = "http://localhost:3000";
+
+    if (
+        hostname.endsWith(".app.github.dev") ||
+        hostname.endsWith(".github.dev")
+    ) {
+        const apiHost = hostname.replace(
+            /-\d+\.app\.github\.dev$/,
+            "-3000.app.github.dev"
+        );
+
+        apiBase = `${window.location.protocol}//${apiHost}`;
+    }
+
+    window.AULALAB_CONFIG = Object.freeze({
+        API_BASE: apiBase,
+        ENDPOINTS: Object.freeze({
+            ESTADO: "/api/estado",
+            REGISTRO: "/api/registro",
+            LOGIN: "/api/login",
+            ME: "/api/me"
+        })
+    });
+})();

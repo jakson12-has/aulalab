@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Administración global | AulaLab</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/administracion.css">
+  <link rel="stylesheet" href="css/tema-aulalab.css">
+  <script src="js/confi.js" defer></script>
+  <script src="js/admin-global.js" defer></script>
+</head>
+<body class="pagina-admin">
+  <header class="barra-admin">
+    <a class="marca" href="inicio.html">
+      <span class="marca-icono">A</span> AulaLab
+    </a>
+    <nav>
+      <button class="boton-tema" type="button" data-cambiar-tema aria-label="Cambiar a modo claro">☀️ Modo claro</button>
+      <a href="inicio.html">Mi cuenta</a>
+      <button id="btnCerrarSesion" class="boton-secundario">Cerrar sesión</button>
+    </nav>
+  </header>
+
+  <main class="admin-contenido admin-ancho">
+    <section class="encabezado-admin">
+      <span class="etiqueta">CENTRO DE CONTROL</span>
+      <h1>Administración global</h1>
+      <p>Revisá las solicitudes, gestioná aprobaciones y consultá las instituciones registradas.</p>
+      <div id="mensajeAdmin" class="mensaje" role="status"></div>
+    </section>
+
+    <section class="resumen-admin">
+      <article class="resumen-caja"><span>Permisos globales</span><strong id="totalAccesos">—</strong></article>
+      <article class="resumen-caja"><span>Administración institucional</span><strong id="totalAdministradores">—</strong></article>
+      <article class="resumen-caja"><span>Instituciones nuevas</span><strong id="totalInstitucionesPendientes">—</strong></article>
+      <article class="resumen-caja"><span>Instituciones registradas</span><strong id="totalInstituciones">—</strong></article>
+      <article class="resumen-caja">
+  <span>Registros de usuarios pendientes</span>
+  <strong id="totalUsuariosPendientes">—</strong>
+</article>
+
+<article class="resumen-caja">
+  <span>Inscripciones de estudiantes pendientes</span>
+  <strong id="totalEstudiantesPendientes">—</strong>
+</article>
+    </section>
+
+    <section class="tarjeta-admin">
+      <div class="titulo-fila">
+        <div><h2>Solicitudes de permiso global</h2><p class="texto-ayuda">Docentes que solicitan permiso para administrar instituciones.</p></div>
+        <button class="boton-secundario" data-actualizar type="button">Actualizar</button>
+      </div>
+      <div id="listaAccesos" class="lista-solicitudes">Cargando…</div>
+    </section>
+
+    <section class="tarjeta-admin">
+      <h2>Solicitudes de administración institucional</h2>
+      <p class="texto-ayuda">Revisá las peticiones de docentes para administrar una institución existente.</p>
+      <div id="listaAdministradores" class="lista-solicitudes">Cargando…</div>
+    </section>
+    <section class="tarjeta-admin">
+  <div class="titulo-fila">
+    <div>
+      <h2>Solicitudes de registro de usuarios</h2>
+      <p class="texto-ayuda">
+        Revisá los registros nuevos antes de permitir el acceso a AulaLab.
+      </p>
+    </div>
+    <button class="boton-secundario" data-actualizar type="button">
+      Actualizar
+    </button>
+  </div>
+  <div id="listaUsuariosPendientes" class="lista-solicitudes">
+    Cargando…
+  </div>
+</section>
+
+<section class="tarjeta-admin">
+  <div class="titulo-fila">
+    <div>
+      <h2>Solicitudes de inscripción de estudiantes</h2>
+      <p class="texto-ayuda">
+        Revisá el NIE, la institución, el grado y la sección antes de aprobar.
+      </p>
+    </div>
+    <button class="boton-secundario" data-actualizar type="button">
+      Actualizar
+    </button>
+  </div>
+  <div id="listaEstudiantesPendientes" class="lista-solicitudes">
+    Cargando…
+  </div>
+</section>
+    <section class="tarjeta-admin">
+      <h2>Solicitudes de registro de instituciones</h2>
+      <p class="texto-ayuda">Al aprobar una solicitud, AulaLab registra la institución en la base de datos.</p>
+      <div id="listaInstitucionesPendientes" class="lista-solicitudes">Cargando…</div>
+    </section>
+
+    <section class="tarjeta-admin">
+      <h2>Instituciones registradas</h2>
+      <div id="listaInstituciones" class="lista-solicitudes">Cargando…</div>
+    </section>
+  </main>
+    <script src="js/tema-aulalab.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+/* AulaLab: ajustes compartidos para laboratorios virtuales.
+   Las reglas específicas de cada laboratorio siguen en sus CSS. */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    max-width: 100%;
+    overflow-x: clip;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+img,
+video,
+canvas,
+svg {
+    max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+    max-width: 100%;
+    font: inherit;
+}
+
+@media (max-width: 800px) {
+    .app-shell,
+    .workspace,
+    .main-column,
+    .sidebar,
+    .rightbar,
+    .container {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .workspace {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .topbar {
+        flex-wrap: wrap;
+    }
+
+    .canvas-wrap {
+        max-width: 100%;
+        overflow: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar,
+    .canvas-toolbar,
+    .section-heading {
+        gap: 12px;
+    }
+
+    button,
+    select,
+    input {
+        min-height: 40px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

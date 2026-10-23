@@ -1,0 +1,710 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#081426">
+  <title>AulaLab | Laboratorio de Química</title>
+  <link rel="stylesheet" href="css/quimica.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <script src="../../../js/confi.js" defer></script>
+  <script src="js/quimica.js" defer></script>
+  <script src="js/progreso-remoto.js" defer></script>
+</head>
+<body>
+        
+<!-- FONDO ANIMADO DE AULALAB -->
+<div class="fondo-quimico" aria-hidden="true">
+    <div class="burbujas-fondo">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="frasco-fondo frasco-azul">
+        <div class="liquido-fondo"></div>
+    </div>
+
+    <div class="frasco-fondo frasco-rosa">
+        <div class="liquido-fondo"></div>
+    </div>
+
+    <div class="frasco-fondo frasco-morado">
+        <div class="liquido-fondo"></div>
+    </div>
+</div>
+
+
+  <header class="topbar">
+    <a class="brand" href="../../../index.html" aria-label="Volver a AulaLab">
+      <span class="brand-icon">A</span>
+      <span>AulaLab <small>LABORATORIO VIRTUAL</small></span>
+    </a>
+    <span class="status"><span class="status-dot"></span> Sistema educativo activo</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">CIENCIAS NATURALES · QUÍMICA</span>
+        <h1>Explorá la ciencia.<br><span>Experimentá sin límites.</span></h1>
+        <p>Descubrí los elementos químicos, explorá la escala de pH y aprendé cómo ocurren las reacciones mediante actividades interactivas.</p>
+        <a class="primary-button" href="#experimentos">Comenzar laboratorio <span>↘</span></a>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="molecule molecule-one">H</div>
+        <div class="molecule molecule-two">O</div>
+        <div class="molecule molecule-three">Na</div>
+        <div class="molecule molecule-four">Cl</div>
+        <div class="atom-core">⚛</div>
+      </div>
+    </section>
+
+    <section class="level-panel">
+      <div>
+        <span class="eyebrow">PERSONALIZÁ TU EXPERIENCIA</span>
+        <h2>Tu nivel educativo</h2>
+        <p>Seleccioná el nivel para adaptar las explicaciones y los retos.</p>
+      </div>
+      <label class="level-select-label" for="nivelEducativo">
+        Nivel de estudio
+        <select id="nivelEducativo">
+          <option value="basica">Educación básica</option>
+          <option value="bachillerato" selected>Bachillerato</option>
+          <option value="superior">Educación superior</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="progress-section" aria-label="Progreso del laboratorio">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">TU APRENDIZAJE</span>
+          <h2>Panel de progreso</h2>
+        </div>
+        <span class="progress-number" id="porcentajeProgreso">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="barraProgreso"></div>
+      </div>
+      <div class="progress-stats">
+        <div><strong id="actividadesCompletadas">0</strong><span>Actividades completadas</span></div>
+        <div><strong id="mejorPuntaje">0%</strong><span>Mejor resultado del cuestionario</span></div>
+        <div><strong id="elementosExplorados">0</strong><span>Elementos explorados</span></div>
+      </div>
+      <p class="saved-note"><span>●</span> Tu progreso se guarda automáticamente en este navegador.</p>
+    </section>
+
+      
+<!-- =========================================
+     AULALAB: NUEVAS ACTIVIDADES
+     ========================================= -->
+<section class="al-aula" id="nuevasActividades">
+
+    <header class="al-hero">
+        <div class="al-hero-contenido">
+            <span class="al-etiqueta">AULALAB · CIENCIA INTERACTIVA</span>
+            <h2>Explorá, experimentá y descubrí.</h2>
+            <p>
+                Construí átomos, investigá la materia y resolvé
+                desafíos para convertirte en una estrella de la química.
+            </p>
+            <a class="al-btn al-btn-principal" href="#al-actividades">
+                <i class="bi bi-rocket-takeoff"></i>
+                Explorar actividades
+            </a>
+        </div>
+
+        <div class="al-hero-ilustracion" aria-hidden="true">
+            <div class="al-orbita al-orbita-1"></div>
+            <div class="al-orbita al-orbita-2"></div>
+            <div class="al-nucleo">⚛</div>
+            <span class="al-particula al-particula-1"></span>
+            <span class="al-particula al-particula-2"></span>
+            <span class="al-particula al-particula-3"></span>
+            <span class="al-burbuja al-burbuja-1"></span>
+            <span class="al-burbuja al-burbuja-2"></span>
+        </div>
+    </header>
+
+    <!-- PANEL DE PROGRESO -->
+    <section class="al-progreso" aria-label="Mi progreso">
+        <div class="al-progreso-cabecera">
+            <div>
+                <span class="al-etiqueta">TU APRENDIZAJE</span>
+                <h3>Mi progreso científico</h3>
+            </div>
+            <span class="al-nivel" id="alNivel">Explorador</span>
+        </div>
+
+        <div class="al-estadisticas">
+            <div class="al-estadistica">
+                <span class="al-stat-icono">⭐</span>
+                <div>
+                    <strong id="alPuntos">0</strong>
+                    <small>Puntos XP</small>
+                </div>
+            </div>
+
+            <div class="al-estadistica">
+                <span class="al-stat-icono">🏅</span>
+                <div>
+                    <strong id="alInsignias">0</strong>
+                    <small>Insignias</small>
+                </div>
+            </div>
+
+            <div class="al-estadistica">
+                <span class="al-stat-icono">✅</span>
+                <div>
+                    <strong id="alCompletadas">0/5</strong>
+                    <small>Actividades completadas</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="al-barra-progreso">
+            <div id="alBarraProgreso"></div>
+        </div>
+        <p class="al-progreso-texto" id="alTextoProgreso">
+            ¡Comenzá tu primera actividad!
+        </p>
+    </section>
+
+    <!-- TARJETAS DE NAVEGACIÓN -->
+    <div class="al-titulo-seccion" id="al-actividades">
+        <span class="al-etiqueta">ZONA DE EXPERIMENTACIÓN</span>
+        <h2>Elegí tu próxima misión</h2>
+        <p>Cada actividad te permite aprender algo nuevo.</p>
+    </div>
+
+    <nav class="al-tarjetas" aria-label="Actividades de química">
+        <a class="al-tarjeta al-tarjeta-azul" href="#al-atomos">
+            <span class="al-tarjeta-icono">⚛️</span>
+            <span class="al-tarjeta-numero">ACTIVIDAD 01</span>
+            <strong>Constructor de átomos</strong>
+            <span>Protones, neutrones y electrones.</span>
+            <span class="al-tarjeta-enlace">Abrir actividad →</span>
+        </a>
+
+        <a class="al-tarjeta al-tarjeta-celeste" href="#al-densidad">
+            <span class="al-tarjeta-icono">💧</span>
+            <span class="al-tarjeta-numero">ACTIVIDAD 02</span>
+            <strong>Laboratorio de densidad</strong>
+            <span>Masa, volumen y flotación.</span>
+            <span class="al-tarjeta-enlace">Abrir actividad →</span>
+        </a>
+
+        <a class="al-tarjeta al-tarjeta-morada" href="#al-moleculas">
+            <span class="al-tarjeta-icono">🧬</span>
+            <span class="al-tarjeta-numero">ACTIVIDAD 03</span>
+            <strong>Constructor de moléculas</strong>
+            <span>Descubrí fórmulas y estructuras.</span>
+            <span class="al-tarjeta-enlace">Abrir actividad →</span>
+        </a>
+
+        <a class="al-tarjeta al-tarjeta-rosa" href="#al-detective">
+            <span class="al-tarjeta-icono">🔎</span>
+            <span class="al-tarjeta-numero">ACTIVIDAD 04</span>
+            <strong>Detective de reacciones</strong>
+            <span>Investigá los cambios de la materia.</span>
+            <span class="al-tarjeta-enlace">Abrir actividad →</span>
+        </a>
+
+        <a class="al-tarjeta al-tarjeta-verde" href="#al-misiones">
+            <span class="al-tarjeta-icono">🏆</span>
+            <span class="al-tarjeta-numero">ACTIVIDAD 05</span>
+            <strong>Misiones científicas</strong>
+            <span>Revisá tus logros y recompensas.</span>
+            <span class="al-tarjeta-enlace">Ver misiones →</span>
+        </a>
+    </nav>
+
+    <!-- ACTIVIDAD 1: CONSTRUCTOR DE ÁTOMOS -->
+    <section class="al-actividad" id="al-atomos">
+        <div class="al-actividad-cabecera">
+            <span class="al-numero-actividad">01</span>
+            <div>
+                <span class="al-etiqueta">ESTRUCTURA ATÓMICA</span>
+                <h2>Constructor de átomos</h2>
+                <p>Agregá partículas y observá cómo cambia el átomo.</p>
+            </div>
+        </div>
+
+        <div class="al-grid-atomos">
+            <div class="al-panel">
+                <h3>Partículas subatómicas</h3>
+
+                <div class="al-contador-particula">
+                    <span class="al-particula-icono al-proton">+</span>
+                    <div class="al-particula-info">
+                        <strong>Protones</strong>
+                        <small>Carga positiva</small>
+                    </div>
+                    <button type="button" data-al-particula="protones"
+                            data-al-cambio="-1" aria-label="Quitar protón">−</button>
+                    <strong id="alProtones">1</strong>
+                    <button type="button" data-al-particula="protones"
+                            data-al-cambio="1" aria-label="Agregar protón">+</button>
+                </div>
+
+                <div class="al-contador-particula">
+                    <span class="al-particula-icono al-neutron">●</span>
+                    <div class="al-particula-info">
+                        <strong>Neutrones</strong>
+                        <small>Sin carga</small>
+                    </div>
+                    <button type="button" data-al-particula="neutrones"
+                            data-al-cambio="-1" aria-label="Quitar neutrón">−</button>
+                    <strong id="alNeutrones">0</strong>
+                    <button type="button" data-al-particula="neutrones"
+                            data-al-cambio="1" aria-label="Agregar neutrón">+</button>
+                </div>
+
+                <div class="al-contador-particula">
+                    <span class="al-particula-icono al-electron">−</span>
+                    <div class="al-particula-info">
+                        <strong>Electrones</strong>
+                        <small>Carga negativa</small>
+                    </div>
+                    <button type="button" data-al-particula="electrones"
+                            data-al-cambio="-1" aria-label="Quitar electrón">−</button>
+                    <strong id="alElectrones">1</strong>
+                    <button type="button" data-al-particula="electrones"
+                            data-al-cambio="1" aria-label="Agregar electrón">+</button>
+                </div>
+
+                <button type="button" class="al-btn al-btn-secundario"
+                        id="alReiniciarAtomo">
+                    Reiniciar átomo
+                </button>
+            </div>
+
+            <div class="al-panel al-atomovisual">
+                <div class="al-atomo-dibujo" id="alAtomoDibujo"
+                     role="img" aria-label="Representación esquemática del átomo">
+                    <div class="al-nucleo-atomico" id="alNucleoAtomico"></div>
+                    <div class="al-orbita-electronica" id="alOrbitaElectronica"></div>
+                </div>
+                <p class="al-nota">Representación esquemática, no a escala.</p>
+            </div>
+
+            <div class="al-panel al-datos-atomo">
+                <span class="al-etiqueta">ELEMENTO IDENTIFICADO</span>
+                <div class="al-elemento-grande">
+                    <strong id="alSimboloAtomo">H</strong>
+                    <span id="alNombreAtomo">Hidrógeno</span>
+                </div>
+                <div class="al-dato-fila">
+                    <span>Número atómico</span>
+                    <strong id="alNumeroAtomico">1</strong>
+                </div>
+                <div class="al-dato-fila">
+                    <span>Número másico</span>
+                    <strong id="alNumeroMasico">1</strong>
+                </div>
+                <div class="al-dato-fila">
+                    <span>Carga eléctrica</span>
+                    <strong id="alCargaAtomo">0</strong>
+                </div>
+                <p id="alExplicacionAtomo" class="al-explicacion">
+                    El átomo tiene igual cantidad de protones y electrones.
+                </p>
+                <button type="button" class="al-btn al-btn-principal"
+                        id="alCompletarAtomo">
+                    Completar actividad
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTIVIDAD 2: DENSIDAD -->
+    <section class="al-actividad" id="al-densidad">
+        <div class="al-actividad-cabecera">
+            <span class="al-numero-actividad">02</span>
+            <div>
+                <span class="al-etiqueta">PROPIEDADES DE LA MATERIA</span>
+                <h2>Laboratorio de densidad</h2>
+                <p>Modificá la masa y el volumen para estudiar un objeto.</p>
+            </div>
+        </div>
+
+        <div class="al-grid-densidad">
+            <div class="al-panel">
+                <label class="al-label" for="alMasa">
+                    Masa del objeto (g)
+                </label>
+                <input id="alMasa" type="number" min="1" max="1000"
+                       step="1" value="80">
+
+                <label class="al-label" for="alVolumen">
+                    Volumen del objeto (mL)
+                </label>
+                <input id="alVolumen" type="number" min="1" max="1000"
+                       step="1" value="100">
+
+                <label class="al-label" for="alLiquido">
+                    Líquido de referencia
+                </label>
+                <select id="alLiquido">
+                    <option value="1">Agua (1 g/mL)</option>
+                    <option value="0.8">Aceite simulado (0.8 g/mL)</option>
+                    <option value="1.2">Líquido denso simulado (1.2 g/mL)</option>
+                </select>
+
+                <div class="al-densidad-formula">
+                    Densidad = masa ÷ volumen
+                </div>
+            </div>
+
+            <div class="al-panel al-panel-flotacion">
+                <div class="al-recipiente">
+                    <div id="alLiquidoVisual"></div>
+                    <div class="al-objeto-flotante" id="alObjetoFlotante">
+                        OBJETO
+                    </div>
+                </div>
+                <div class="al-resultado-densidad">
+                    <span class="al-etiqueta">DENSIDAD CALCULADA</span>
+                    <strong><span id="alDensidad">0.80</span> g/mL</strong>
+                    <span id="alEstadoFlotacion" class="al-estado-flotacion">
+                        Flota
+                    </span>
+                </div>
+                <p id="alExplicacionDensidad">
+                    El objeto es menos denso que el líquido.
+                </p>
+                <button type="button" class="al-btn al-btn-principal"
+                        id="alCompletarDensidad">
+                    Completar actividad
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTIVIDAD 3: MOLÉCULAS -->
+    <section class="al-actividad" id="al-moleculas">
+        <div class="al-actividad-cabecera">
+            <span class="al-numero-actividad">03</span>
+            <div>
+                <span class="al-etiqueta">ENLACES QUÍMICOS</span>
+                <h2>Constructor de moléculas</h2>
+                <p>Explorá moléculas comunes y conocé sus componentes.</p>
+            </div>
+        </div>
+
+        <div class="al-grid-moleculas">
+            <div class="al-panel">
+                <label class="al-label" for="alSeleccionMolecula">
+                    Seleccioná una molécula
+                </label>
+                <select id="alSeleccionMolecula">
+                    <option value="agua">Agua — H₂O</option>
+                    <option value="dioxido">Dióxido de carbono — CO₂</option>
+                    <option value="oxigeno">Oxígeno — O₂</option>
+                    <option value="amoniaco">Amoníaco — NH₃</option>
+                    <option value="metano">Metano — CH₄</option>
+                </select>
+
+                <div class="al-molecula-dibujo" id="alMoleculaDibujo"
+                     aria-label="Representación simplificada de la molécula">
+                </div>
+            </div>
+
+            <div class="al-panel">
+                <span class="al-etiqueta">FICHA MOLECULAR</span>
+                <h3 id="alNombreMolecula">Agua</h3>
+                <div class="al-formula-molecular" id="alFormulaMolecula">H₂O</div>
+                <p id="alDescripcionMolecula"></p>
+
+                <div class="al-dato-fila">
+                    <span>Átomos en la fórmula</span>
+                    <strong id="alCantidadAtomos">3</strong>
+                </div>
+                <div class="al-dato-fila">
+                    <span>Tipos de elementos</span>
+                    <strong id="alTiposElementos">2</strong>
+                </div>
+
+                <button type="button" class="al-btn al-btn-principal"
+                        id="alCompletarMolecula">
+                    Completar actividad
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTIVIDAD 4: DETECTIVE -->
+    <section class="al-actividad" id="al-detective">
+        <div class="al-actividad-cabecera">
+            <span class="al-numero-actividad">04</span>
+            <div>
+                <span class="al-etiqueta">OBSERVACIÓN CIENTÍFICA</span>
+                <h2>Detective de reacciones</h2>
+                <p>Leé cada caso y determiná qué tipo de cambio ocurrió.</p>
+            </div>
+        </div>
+
+        <div class="al-panel al-caso-detective">
+            <div class="al-caso-cabecera">
+                <span class="al-caso-icono">🔎</span>
+                <div>
+                    <span class="al-etiqueta" id="alNumeroCaso">CASO 1</span>
+                    <h3 id="alTituloCaso">Investigación científica</h3>
+                </div>
+            </div>
+
+            <p id="alDescripcionCaso" class="al-descripcion-caso"></p>
+
+            <div class="al-opciones-detective" id="alOpcionesDetective">
+            </div>
+
+            <p id="alFeedbackDetective" class="al-feedback"
+               aria-live="polite"></p>
+
+            <button type="button" class="al-btn al-btn-principal"
+                    id="alSiguienteCaso" disabled>
+                Siguiente caso
+            </button>
+        </div>
+    </section>
+
+    <!-- ACTIVIDAD 5: MISIONES -->
+    <section class="al-actividad" id="al-misiones">
+        <div class="al-actividad-cabecera">
+            <span class="al-numero-actividad">05</span>
+            <div>
+                <span class="al-etiqueta">GAMIFICACIÓN</span>
+                <h2>Misiones científicas</h2>
+                <p>Completá actividades, sumá puntos y desbloqueá insignias.</p>
+            </div>
+        </div>
+
+        <div class="al-panel">
+            <div class="al-misiones-lista" id="alListaMisiones"></div>
+        </div>
+
+        <div class="al-panel al-panel-insignias">
+            <h3>Mis insignias</h3>
+            <div id="alListaInsignias" class="al-lista-insignias"></div>
+        </div>
+
+        <p class="al-aviso-progreso">
+            El progreso de esta versión se guarda en este navegador
+            y en este dispositivo. No se sincroniza automáticamente
+            con una cuenta o base de datos.
+        </p>
+    </section>
+
+</section>
+<!-- FIN DE NUEVAS ACTIVIDADES -->
+
+
+<section class="section-block" id="tabla-periodica">
+  <div class="section-heading">
+    <div>
+      <span class="eyebrow">MÓDULO 01</span>
+      <h2>Tabla periódica de los elementos</h2>
+      <p>Explorá los 118 elementos químicos y descubrí sus propiedades.</p>
+    </div>
+    <span class="module-tag">118 elementos</span>
+  </div>
+
+  <div class="periodic-legend">
+    <span><i class="cat-alcalino"></i> Alcalinos</span>
+    <span><i class="cat-alcalinoterreo"></i> Alcalinotérreos</span>
+    <span><i class="cat-transicion"></i> Transición</span>
+    <span><i class="cat-postransicion"></i> Postransición</span>
+    <span><i class="cat-metaloide"></i> Metaloides</span>
+    <span><i class="cat-nometal"></i> No metales</span>
+    <span><i class="cat-halogen"></i> Halógenos</span>
+    <span><i class="cat-gasnoble"></i> Gases nobles</span>
+    <span><i class="cat-lantanido"></i> Lantánidos</span>
+    <span><i class="cat-actinido"></i> Actínidos</span>
+  </div>
+
+  <div class="table-scroll">
+    <div class="periodic-table" id="tablaElementos"
+         aria-label="Tabla periódica interactiva con 118 elementos"></div>
+  </div>
+
+  <p class="table-hint">En celulares, deslizá horizontalmente para ver toda la tabla.</p>
+
+  <div class="element-detail" id="detalleElemento" aria-live="polite">
+    <div class="element-large" id="simboloElemento">H</div>
+    <div class="element-info">
+      <span class="eyebrow">ELEMENTO SELECCIONADO</span>
+      <h3 id="nombreElemento">Hidrógeno</h3>
+      <p id="descripcionElemento">Seleccioná un elemento para conocer sus propiedades.</p>
+      <div class="property-list">
+        <span>Número atómico<strong id="numeroAtomico">1</strong></span>
+        <span>Masa atómica<strong id="masaAtomica">1.008 u</strong></span>
+        <span>Familia química<strong id="categoriaElemento">No metal</strong></span>
+        <span>Período<strong id="periodoElemento">1</strong></span>
+        <span>Grupo<strong id="grupoElemento">1</strong></span>
+      </div>
+    </div>
+    <button class="secondary-button" id="marcarElemento" type="button">
+      Marcar como explorado
+    </button>
+  </div>
+</section>
+
+
+    <section class="section-block">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">MÓDULO 02</span>
+          <h2>Simulador de escala de pH</h2>
+          <p>Experimentá con valores de acidez y alcalinidad.</p>
+        </div>
+        <span class="module-tag">Simulación</span>
+      </div>
+
+      <div class="experiment-card">
+        <div class="ph-visual">
+          <div class="ph-value" id="valorPH">7</div>
+          <div class="ph-state" id="estadoPH">Neutro</div>
+          <div class="ph-scale" id="escalaPH" aria-label="Escala de pH de 0 a 14"></div>
+          <div class="scale-labels"><span>Ácido · 0</span><span>Neutro · 7</span><span>Alcalino · 14</span></div>
+        </div>
+        <div class="ph-controls">
+          <label for="controlPH">Ajustá el valor de pH</label>
+          <input id="controlPH" type="range" min="0" max="14" value="7" step="1">
+          <div class="range-ends"><span>0</span><span>14</span></div>
+          <label for="sustanciaPH">Ejemplo de sustancia</label>
+          <select id="sustanciaPH">
+            <option value="automatico">Elegir automáticamente</option>
+            <option value="limon">Jugo de limón (aprox. pH 2)</option>
+            <option value="vinagre">Vinagre (aprox. pH 3)</option>
+            <option value="agua">Agua pura (aprox. pH 7)</option>
+            <option value="bicarbonato">Solución de bicarbonato (aprox. pH 8–9)</option>
+            <option value="jabon">Agua jabonosa (aprox. pH 10)</option>
+          </select>
+          <div class="info-box">
+            <strong>¿Qué significa?</strong>
+            <p id="explicacionPH">Un pH cercano a 7 se considera neutro a temperatura ambiente.</p>
+          </div>
+          <button class="primary-button" id="completarPH" type="button">Completar experimento</button>
+        </div>
+      </div>
+      <p class="disclaimer">Los valores de pH de las sustancias reales varían según su composición y concentración. Esta actividad es una simulación educativa.</p>
+    </section>
+
+    <section class="section-block">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">MÓDULO 03</span>
+          <h2>Reacciones químicas</h2>
+          <p>Aprendé a interpretar ecuaciones químicas sencillas.</p>
+        </div>
+        <span class="module-tag">Aprendizaje guiado</span>
+      </div>
+
+      <div class="reaction-card">
+        <div class="reaction-equation">
+          <span class="formula">2H₂</span>
+          <span class="operator">+</span>
+          <span class="formula">O₂</span>
+          <span class="operator">→</span>
+          <span class="formula product">2H₂O</span>
+        </div>
+        <div class="reaction-description">
+          <h3>Formación del agua</h3>
+          <p>El hidrógeno reacciona con el oxígeno para formar agua. El número que aparece delante de una fórmula indica cuántas unidades participan en la ecuación.</p>
+          <div class="atom-count">
+            <span>Reactivos: <strong>4 H · 2 O</strong></span>
+            <span>Productos: <strong>4 H · 2 O</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="challenge-card">
+        <div>
+          <span class="eyebrow">RETO DE BALANCEO</span>
+          <h3>¿Qué coeficiente falta?</h3>
+          <p>Elegí el número que permite tener dos átomos de hidrógeno y dos de oxígeno en ambos lados.</p>
+          <div class="reaction-equation compact">
+            <span class="formula">2H₂</span><span class="operator">+</span>
+            <span class="formula">O₂</span><span class="operator">→</span>
+            <span class="formula product"><span id="coeficienteActual">1</span>H₂O</span>
+          </div>
+        </div>
+        <div class="challenge-options" id="opcionesBalanceo">
+          <button type="button" data-coeficiente="1">1</button>
+          <button type="button" data-coeficiente="2">2</button>
+          <button type="button" data-coeficiente="3">3</button>
+        </div>
+        <p class="feedback" id="resultadoBalanceo" aria-live="polite">Seleccioná una respuesta para comprobarla.</p>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">MÓDULO 04</span>
+          <h2>Evaluación de conocimientos</h2>
+          <p>Comprobá lo que aprendiste en este laboratorio.</p>
+        </div>
+        <span class="module-tag">Cuestionario</span>
+      </div>
+
+      <form id="formularioQuiz" class="quiz-card">
+        <div class="question">
+          <p><span>01</span> ¿Cuál es el símbolo químico del oxígeno?</p>
+          <label><input type="radio" name="p1" value="a"> Ox</label>
+          <label><input type="radio" name="p1" value="b"> O</label>
+          <label><input type="radio" name="p1" value="c"> Og</label>
+        </div>
+        <div class="question">
+          <p><span>02</span> ¿Qué indica normalmente un pH de 7 a temperatura ambiente?</p>
+          <label><input type="radio" name="p2" value="a"> Una sustancia neutra</label>
+          <label><input type="radio" name="p2" value="b"> Una sustancia muy ácida</label>
+          <label><input type="radio" name="p2" value="c"> Una sustancia muy alcalina</label>
+        </div>
+        <div class="question">
+          <p><span>03</span> ¿Qué debe cumplirse al balancear una ecuación química?</p>
+          <label><input type="radio" name="p3" value="a"> Que desaparezcan los reactivos</label>
+          <label><input type="radio" name="p3" value="b"> Que los productos siempre sean líquidos</label>
+          <label><input type="radio" name="p3" value="c"> Que se conserve el número de átomos de cada elemento</label>
+        </div>
+        <div class="question">
+          <p><span>04</span> ¿Cuál de estos elementos tiene número atómico 1?</p>
+          <label><input type="radio" name="p4" value="a"> Helio</label>
+          <label><input type="radio" name="p4" value="b"> Hidrógeno</label>
+          <label><input type="radio" name="p4" value="c"> Litio</label>
+        </div>
+        <button class="primary-button" type="submit">Calificar evaluación</button>
+        <div id="resultadoQuiz" class="quiz-result" aria-live="polite" hidden></div>
+      </form>
+    </section>
+
+    <section class="completion-panel">
+      <div>
+        <span class="eyebrow">OBJETIVO DE APRENDIZAJE</span>
+        <h2>¡Cada experimento cuenta!</h2>
+        <p>Explorá los elementos, completá los experimentos y poné a prueba tus conocimientos.</p>
+      </div>
+      <button class="secondary-button" id="reiniciarProgreso" type="button">Reiniciar mi progreso</button>
+    </section>
+
+    <footer class="footer">
+      <a class="brand footer-brand" href="../../../index.html">
+        <span class="brand-icon">A</span>
+        <span>AulaLab <small>APRENDER · EXPLORAR · CREAR</small></span>
+      </a>
+      <p>Laboratorio virtual educativo · Ciencias y Química</p>
+    </footer>
+  </main>
+
+  <div id="notificacion" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

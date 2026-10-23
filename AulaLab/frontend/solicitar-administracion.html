@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solicitudes de administración | AulaLab</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/administracion.css">
+  <link rel="stylesheet" href="css/tema-aulalab.css">
+  <script src="js/confi.js" defer></script>
+  <script src="js/solicitar-administracion.js" defer></script>
+</head>
+<body class="pagina-admin">
+  <header class="barra-admin">
+    <a class="marca" href="inicio.html">
+      <span class="marca-icono">A</span> AulaLab
+    </a>
+    <nav>
+      <a href="inicio.html">Mi cuenta</a>
+      <button id="btnCerrarSesion" class="boton-secundario">Cerrar sesión</button>
+    </nav>
+  </header>
+
+  <main class="admin-contenido">
+    <section class="encabezado-admin">
+      <span class="etiqueta">GESTIÓN INSTITUCIONAL</span>
+      <h1>Solicitudes de administración</h1>
+      <p>Solicitá permisos y consultá el estado de tus solicitudes. El administrador global revisará cada petición.</p>
+      <div id="mensajeGeneral" class="mensaje" role="status"></div>
+    </section>
+
+    <section class="tarjeta-admin">
+      <h2>1. Solicitar permiso de administrador institucional</h2>
+      <p class="texto-ayuda">Este paso está dirigido a docentes. Primero necesitás autorización del administrador global.</p>
+      <form id="formAccesoAdmin">
+        <div class="campo">
+          <label for="justificacionAcceso">¿Por qué necesitás este permiso?</label>
+          <textarea id="justificacionAcceso" minlength="20" maxlength="3000"
+            rows="4" required placeholder="Explicá para qué necesitás administrar una institución."></textarea>
+        </div>
+        <button class="boton-principal" type="submit">Enviar solicitud de permiso</button>
+      </form>
+      <div id="estadoAcceso" class="resultado-solicitud"></div>
+    </section>
+
+    <section class="tarjeta-admin">
+      <h2>2. Solicitar administración de una institución existente</h2>
+      <p class="texto-ayuda">Completá esta solicitud cuando ya tengas aprobado el permiso para administrar instituciones.</p>
+      <form id="formAdminInstitucion">
+        <div class="campo">
+          <label for="idInstitucion">ID de la institución</label>
+          <input id="idInstitucion" type="number" min="1" required placeholder="Ejemplo: 3">
+        </div>
+        <div class="campo">
+          <label for="justificacionInstitucion">Justificación</label>
+          <textarea id="justificacionInstitucion" minlength="15" maxlength="1000"
+            rows="4" required placeholder="Explicá por qué necesitás administrar esta institución."></textarea>
+        </div>
+        <button class="boton-principal" type="submit">Solicitar administración</button>
+      </form>
+      <div id="estadoAdminInstitucion" class="resultado-solicitud"></div>
+    </section>
+
+    <section class="tarjeta-admin">
+      <h2>3. Solicitar el registro de una institución nueva</h2>
+      <p class="texto-ayuda">Si tu institución todavía no aparece en AulaLab, enviá sus datos para que sean revisados.</p>
+      <form id="formNuevaInstitucion">
+        <div class="campo">
+          <label for="nombreInstitucion">Nombre de la institución</label>
+          <input id="nombreInstitucion" maxlength="180" required>
+        </div>
+        <div class="campo">
+          <label for="codigoInstitucion">Código único de la institución</label>
+          <input id="codigoInstitucion" maxlength="80" required>
+        </div>
+        <div class="campo">
+          <label for="correoInstitucion">Correo institucional</label>
+          <input id="correoInstitucion" type="email" maxlength="180" required>
+        </div>
+        <div class="campo">
+          <label for="telefonoInstitucion">Teléfono</label>
+          <input id="telefonoInstitucion" maxlength="40" placeholder="Opcional">
+        </div>
+        <div class="campo">
+          <label for="direccionInstitucion">Dirección</label>
+          <textarea id="direccionInstitucion" maxlength="500" rows="2" required></textarea>
+        </div>
+        <div class="campo">
+          <label for="logoInstitucion">URL del logo (opcional)</label>
+          <input id="logoInstitucion" type="url" maxlength="500" placeholder="https://...">
+        </div>
+        <button class="boton-principal" type="submit">Enviar registro de institución</button>
+      </form>
+      <div id="estadoNuevaInstitucion" class="resultado-solicitud"></div>
+    </section>
+
+    <section class="tarjeta-admin">
+      <div class="titulo-fila">
+        <div>
+          <h2>Mis solicitudes</h2>
+          <p class="texto-ayuda">Consultá el estado de las peticiones que has enviado.</p>
+        </div>
+        <button id="btnActualizar" class="boton-secundario" type="button">Actualizar</button>
+      </div>
+      <div id="listaMisSolicitudes" class="lista-solicitudes">Cargando solicitudes…</div>
+    </section>
+  </main>
+</body>
+</html>

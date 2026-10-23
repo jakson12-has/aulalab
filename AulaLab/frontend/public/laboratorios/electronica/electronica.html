@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101827">
+
+    <title>AulaLab | Laboratorio de Electrónica</title>
+
+    <link rel="stylesheet" href="css/electronica.css">
+
+    <script src="js/electronica.js" defer></script>
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+    <div class="app-shell">
+
+        <header class="topbar">
+            <a class="brand" href="#">
+                <span class="brand-mark">A</span>
+                <span>
+                    <strong>AulaLab</strong>
+                    <small>Laboratorio virtual</small>
+                </span>
+            </a>
+
+            <div class="topbar-title">
+                <span class="eyebrow">CIENCIAS · TECNOLOGÍA</span>
+                <h1>Laboratorio de electrónica</h1>
+            </div>
+
+            <div class="topbar-actions">
+                <span class="status-pill">
+                    <i></i> Entorno de práctica
+                </span>
+
+                <button class="button button-ghost" id="clear" type="button">
+                    Limpiar mesa
+                </button>
+            </div>
+        </header>
+
+        <main class="workspace">
+
+            <!-- BIBLIOTECA DE COMPONENTES -->
+            <aside class="sidebar">
+
+                <section class="panel">
+                    <div class="section-heading">
+                        <div>
+                            <span class="eyebrow">BIBLIOTECA</span>
+                            <h2>Componentes</h2>
+                        </div>
+
+                        <span class="count-badge" id="componentCount">0</span>
+                    </div>
+
+                    <p class="muted">
+                        Selecciona un componente para colocarlo en la mesa.
+                    </p>
+
+                    <div class="component-grid">
+
+                        <button class="component-card" data-add="battery" type="button">
+                            <span class="component-icon battery-icon">＋ −</span>
+                            <strong>Batería</strong>
+                            <small>9 V</small>
+                        </button>
+
+                        <button class="component-card" data-add="switch" type="button">
+                            <span class="component-icon switch-icon">─○╱</span>
+                            <strong>Interruptor</strong>
+                            <small>Encendido / apagado</small>
+                        </button>
+
+                        <button class="component-card" data-add="button" type="button">
+                            <span class="component-icon button-icon">●</span>
+                            <strong>Pulsador</strong>
+                            <small>Contacto momentáneo</small>
+                        </button>
+
+                        <button class="component-card" data-add="resistor" type="button">
+                            <span class="component-icon resistor-icon">▱</span>
+                            <strong>Resistencia</strong>
+                            <small>220 Ω</small>
+                        </button>
+
+                        <button class="component-card" data-add="buzzer" type="button">
+                            <span class="component-icon buzzer-icon">)))</span>
+                            <strong>Zumbador</strong>
+                            <small>Salida sonora</small>
+                        </button>
+
+                        <button class="component-card" data-add="led-red" type="button">
+                            <span class="component-icon led-icon red"></span>
+                            <strong>LED rojo</strong>
+                            <small>Diodo emisor</small>
+                        </button>
+
+                        <button class="component-card" data-add="led-yellow" type="button">
+                            <span class="component-icon led-icon yellow"></span>
+                            <strong>LED amarillo</strong>
+                            <small>Diodo emisor</small>
+                        </button>
+
+                        <button class="component-card" data-add="led-green" type="button">
+                            <span class="component-icon led-icon green"></span>
+                            <strong>LED verde</strong>
+                            <small>Diodo emisor</small>
+                        </button>
+
+                    </div>
+                </section>
+
+                <!-- PRÁCTICAS -->
+                <section class="panel">
+                    <div class="section-heading">
+                        <div>
+                            <span class="eyebrow">APRENDE HACIENDO</span>
+                            <h2>Prácticas</h2>
+                        </div>
+                    </div>
+
+                    <div class="practice-list">
+
+                        <button class="practice-button" data-practice="led" type="button">
+                            <span class="practice-number">01</span>
+                            <span>
+                                <strong>LED básico</strong>
+                                <small>Batería + resistencia + LED</small>
+                            </span>
+                            <span class="chevron">›</span>
+                        </button>
+
+                        <button class="practice-button" data-practice="switch" type="button">
+                            <span class="practice-number">02</span>
+                            <span>
+                                <strong>LED con interruptor</strong>
+                                <small>Controla el paso de corriente</small>
+                            </span>
+                            <span class="chevron">›</span>
+                        </button>
+
+                        <button class="practice-button" data-practice="traffic" type="button">
+                            <span class="practice-number">03</span>
+                            <span>
+                                <strong>Semáforo</strong>
+                                <small>Tres luces en secuencia</small>
+                            </span>
+                            <span class="chevron">›</span>
+                        </button>
+
+                        <button class="practice-button" data-practice="colors" type="button">
+                            <span class="practice-number">04</span>
+                            <span>
+                                <strong>Colores LED</strong>
+                                <small>Compara tres diodos</small>
+                            </span>
+                            <span class="chevron">›</span>
+                        </button>
+
+                        <button class="practice-button" data-practice="series" type="button">
+                            <span class="practice-number">05</span>
+                            <span>
+                                <strong>Conexión en serie</strong>
+                                <small>Dos LED en una ruta</small>
+                            </span>
+                            <span class="chevron">›</span>
+                        </button>
+
+                        <button class="practice-button" data-practice="parallel" type="button">
+                            <span class="practice-number">06</span>
+                            <span>
+                                <strong>Conexión en paralelo</strong>
+                                <small>Dos ramas independientes</small>
+                            </span>
+                            <span class="chevron">›</span>
+                        </button>
+
+                        <button class="practice-button" data-practice="buzzer" type="button">
+                            <span class="practice-number">07</span>
+                            <span>
+                                <strong>Alarma sonora</strong>
+                                <small>Batería + pulsador + zumbador</small>
+                            </span>
+                            <span class="chevron">›</span>
+                        </button>
+
+                    </div>
+                </section>
+
+            </aside>
+
+            <!-- ÁREA PRINCIPAL -->
+            <section class="main-column">
+
+                <section class="panel canvas-panel">
+
+                    <div class="canvas-toolbar">
+                        <div>
+                            <span class="eyebrow">ÁREA DE TRABAJO</span>
+                            <h2>Tu circuito</h2>
+                            <p class="muted">
+                                Arrastra los componentes y selecciona dos terminales para conectarlos.
+                            </p>
+                        </div>
+
+                        <div class="toolbar-buttons">
+                            <button class="button button-ghost" id="rotate" type="button" disabled>
+                                ↻ Girar
+                            </button>
+
+                            <button class="button button-ghost" id="delete" type="button" disabled>
+                                Eliminar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="canvas-wrap" id="canvasWrap">
+
+                        <svg id="wireLayer" class="wire-layer"
+                             aria-label="Conexiones del circuito"></svg>
+
+                        <svg id="board" class="board"
+                             aria-label="Mesa de trabajo para el circuito"></svg>
+
+                        <div class="empty-hint" id="emptyHint">
+                            <div class="empty-symbol">⌁</div>
+                            <strong>Tu mesa está lista</strong>
+                            <p>
+                                Añade componentes o abre una práctica para comenzar.
+                            </p>
+                        </div>
+
+                        <div class="canvas-tip" id="connectionHint">
+                            Selecciona un terminal y después otro para crear un cable.
+                        </div>
+
+                    </div>
+
+                    <div class="canvas-footer">
+                        <span>
+                            <i class="legend-dot terminal"></i>
+                            Terminal disponible
+                        </span>
+
+                        <span>
+                            <i class="legend-dot live"></i>
+                            Con corriente
+                        </span>
+
+                        <span id="selectionHint">
+                            Ningún componente seleccionado
+                        </span>
+                    </div>
+
+                </section>
+
+                <!-- SIMULACIÓN -->
+                <section class="panel controls-panel">
+
+                    <div class="section-heading">
+                        <div>
+                            <span class="eyebrow">CONTROLES</span>
+                            <h2>Simulación</h2>
+                        </div>
+
+                        <span class="simulation-state" id="outState">
+                            Detenida
+                        </span>
+                    </div>
+
+                    <div class="metrics">
+
+                        <div class="metric">
+                            <span>Voltaje de fuente</span>
+                            <strong id="outVolt">0.0 <small>V</small></strong>
+                            <div class="metric-track">
+                                <i style="width: 0%"></i>
+                            </div>
+                        </div>
+
+                        <div class="metric">
+                            <span>Corriente estimada</span>
+                            <strong id="outCurrent">0 <small>mA</small></strong>
+                            <div class="metric-track">
+                                <i style="width: 0%"></i>
+                            </div>
+                        </div>
+
+                        <div class="metric">
+                            <span>Componentes</span>
+                            <strong id="outParts">0</strong>
+                            <div class="metric-track">
+                                <i style="width: 0%"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="simulation-actions">
+                        <button class="button button-primary" id="simulate" type="button">
+                            ▶ Iniciar simulación
+                        </button>
+
+                        <button class="button button-secondary" id="stop" type="button" disabled>
+                            ■ Detener
+                        </button>
+
+                        <button class="button button-ghost" id="loadExample" type="button">
+                            Cargar ejemplo
+                        </button>
+                    </div>
+
+                    <div class="result" id="result" role="status" aria-live="polite">
+                        <span class="result-icon">i</span>
+                        <p>
+                            Añade un circuito y pulsa
+                            <strong>Iniciar simulación</strong>
+                            para revisar sus conexiones.
+                        </p>
+                    </div>
+
+                </section>
+
+            </section>
+
+            <!-- INSPECTOR Y GUÍA -->
+            <aside class="rightbar">
+
+                <section class="panel editor-panel">
+                    <div class="section-heading">
+                        <div>
+                            <span class="eyebrow">PROPIEDADES</span>
+                            <h2>Inspector</h2>
+                        </div>
+
+                        <span class="inspector-icon">⌘</span>
+                    </div>
+
+                    <div id="editor" class="editor-content">
+                        <div class="inspector-empty">
+                            <div>⌖</div>
+                            <strong>Selecciona una pieza</strong>
+                            <p>
+                                Sus propiedades y terminales aparecerán aquí.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="panel guide-panel">
+                    <span class="eyebrow">GUÍA RÁPIDA</span>
+                    <h2>¿Cómo funciona?</h2>
+
+                    <ol class="guide-steps">
+                        <li>
+                            <span>1</span>
+                            <p><strong>Coloca</strong> los componentes de tu circuito.</p>
+                        </li>
+
+                        <li>
+                            <span>2</span>
+                            <p><strong>Conecta</strong> los terminales haciendo clic en dos puntos.</p>
+                        </li>
+
+                        <li>
+                            <span>3</span>
+                            <p><strong>Simula</strong> para comprobar la ruta eléctrica.</p>
+                        </li>
+                    </ol>
+
+                    <div class="tip-card">
+                        <strong>Consejo</strong>
+                        <p>
+                            Un LED tiene polaridad. En este modelo, el primer terminal
+                            es el ánodo (+) y el segundo es el cátodo (−). Utiliza una
+                            resistencia en serie.
+                        </p>
+                    </div>
+                </section>
+
+            </aside>
+
+        </main>
+
+        <footer class="footer">
+            <span>© AulaLab · Laboratorio virtual educativo</span>
+            <span>Aprender · Crear · Experimentar</span>
+        </footer>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+.students-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  margin: 8px 0 30px;
+}
+.students-heading h1 {
+  margin: 10px 0;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  letter-spacing: -.045em;
+}
+.students-heading p, .panel-description {
+  color: var(--doc-muted);
+  line-height: 1.7;
+}
+.back-link {
+  color: var(--doc-cyan);
+  text-decoration: none;
+  white-space: nowrap;
+  padding-bottom: 8px;
+}
+.student-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-bottom: 1px solid var(--doc-border);
+  margin-bottom: 22px;
+}
+.student-tab {
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--doc-muted);
+  padding: 14px 18px;
+  cursor: pointer;
+  font: inherit;
+}
+.student-tab.active {
+  color: var(--doc-cyan);
+  border-bottom-color: var(--doc-cyan);
+}
+.student-panel {
+  padding: clamp(20px, 4vw, 34px);
+  border: 1px solid var(--doc-border);
+  border-radius: 19px;
+  background: var(--doc-panel);
+}
+.student-panel[hidden] { display: none; }
+.student-panel h2 { margin-top: 0; }
+.student-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 19px;
+  margin-top: 26px;
+}
+.student-form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--doc-text);
+  font-size: .9rem;
+  font-weight: 650;
+}
+.student-form-grid input, .student-form-grid select {
+  width: 100%;
+  min-height: 45px;
+  padding: 11px 12px;
+  border: 1px solid var(--doc-border);
+  border-radius: 10px;
+  background: #0d1728;
+  color: var(--doc-text);
+  font: inherit;
+}
+.student-form-grid input:focus, .student-form-grid select:focus {
+  outline: 2px solid rgba(99, 227, 223, .5);
+  outline-offset: 1px;
+}
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+.student-primary, .student-secondary {
+  min-height: 44px;
+  padding: 11px 17px;
+  border-radius: 10px;
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+}
+.student-primary {
+  border: 0;
+  color: #071722;
+  background: var(--doc-cyan);
+}
+.student-primary:hover { filter: brightness(1.08); }
+.student-secondary {
+  border: 1px solid var(--doc-border);
+  color: var(--doc-text);
+  background: transparent;
+}
+.excel-instructions {
+  margin: 22px 0;
+  padding: 18px;
+  border: 1px solid var(--doc-border);
+  border-radius: 12px;
+  background: var(--doc-panel-soft);
+  overflow-wrap: anywhere;
+}
+.excel-instructions h3 { margin-top: 0; }
+.excel-instructions p {
+  color: var(--doc-muted);
+  line-height: 1.75;
+}
+.file-drop {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 32px 18px;
+  border: 1px dashed rgba(99, 227, 223, .45);
+  border-radius: 15px;
+  text-align: center;
+  background: rgba(99, 227, 223, .035);
+  cursor: pointer;
+}
+.file-drop span { color: var(--doc-muted); font-size: .88rem; }
+.file-drop .upload-symbol { color: var(--doc-cyan); font-size: 2rem; }
+.file-drop input { max-width: 100%; margin-top: 7px; color: var(--doc-muted); }
+.student-message { color: var(--doc-muted); line-height: 1.6; overflow-wrap: anywhere; }
+.student-warning {
+  margin: 22px 0;
+  padding: 20px;
+  border: 1px solid rgba(255, 211, 139, .25);
+  border-radius: 14px;
+  background: rgba(255, 211, 139, .05);
+}
+.student-warning strong { color: #ffd38b; }
+.student-warning p { margin-bottom: 0; color: var(--doc-muted); line-height: 1.7; }
+@media (max-width: 600px) {
+  .students-heading { align-items: flex-start; flex-direction: column; }
+  .student-form-grid { grid-template-columns: 1fr; }
+  .student-tab { padding: 12px 9px; font-size: .88rem; }
+  .form-actions { flex-direction: column; }
+  .form-actions button { width: 100%; }
+}

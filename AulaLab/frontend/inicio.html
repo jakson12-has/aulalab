@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#070b18">
+    <title>Mi espacio | AulaLab</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/tema-aulalab.css">
+    <link rel="stylesheet" href="css/estudiante-panel.css">
+
+    <script src="js/confi.js" defer></script>
+    <script src="js/inicio.js" defer></script>
+</head>
+
+<body class="pagina-estudiante">
+
+<div class="panel-estudiante">
+
+    <aside class="barra-lateral" id="barraLateral">
+        <a class="marca marca-estudiante" href="inicio.html">
+            <span class="marca-icono">A</span>
+            <span>AulaLab</span>
+        </a>
+
+        <div class="etiqueta-menu">MI ESPACIO</div>
+
+        <nav class="menu-estudiante" aria-label="Navegación principal">
+            <a class="elemento-menu activo" href="#inicio">
+                <span class="icono-menu">⌂</span>
+                <span>Inicio</span>
+            </a>
+
+            <a class="elemento-menu" href="#laboratorios">
+                <span class="icono-menu">⚗</span>
+                <span>Mis laboratorios</span>
+            </a>
+
+            <a class="elemento-menu" href="#aprendizaje">
+                <span class="icono-menu">▤</span>
+                <span>Mi aprendizaje</span>
+            </a>
+
+            <a class="elemento-menu" href="#perfil">
+                <span class="icono-menu">◎</span>
+                <span>Mi perfil</span>
+            </a>
+        </nav>
+
+        <div class="ayuda-lateral">
+            <div class="ayuda-icono">✦</div>
+            <h3>Aprendé haciendo</h3>
+            <p>Explorá, practicá y descubrí algo nuevo cada día.</p>
+        </div>
+
+        <button class="boton-cerrar-sesion" id="btnCerrarSesion" type="button">
+            <span>↪</span>
+            Cerrar sesión
+        </button>
+    </aside>
+
+    <main class="contenido-estudiante">
+
+        <header class="encabezado-estudiante">
+            <button
+                class="boton-menu-movil"
+                id="btnMenuMovil"
+                type="button"
+                aria-label="Abrir menú"
+                aria-expanded="false">
+                ☰
+            </button>
+
+            <div class="ruta-actual">
+                <span>AulaLab</span>
+                <span class="separador-ruta">/</span>
+                <strong>Mi espacio</strong>
+            </div>
+
+            <button class="boton-tema" type="button" data-cambiar-tema aria-label="Cambiar a modo claro">☀️ Modo claro</button>
+            <div class="usuario-encabezado">
+                <div class="avatar-estudiante" id="avatarEstudiante">E</div>
+                <div class="datos-encabezado">
+                    <strong id="nombreCorto">Estudiante</strong>
+                    <span>Estudiante</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="contenido-principal">
+
+            <div id="mensajeEstado" class="mensaje-panel" role="status">
+                Comprobando tu sesión...
+            </div>
+
+            <section class="bienvenida-estudiante" id="inicio">
+                <div class="bienvenida-texto">
+                    <span class="sobrelinea">TU ESPACIO DE APRENDIZAJE</span>
+
+                    <h1 id="saludo">¡Bienvenido a AulaLab!</h1>
+
+                    <p>
+                        Tu curiosidad es el comienzo de algo grande.
+                        Elegí un laboratorio y comenzá a explorar.
+                    </p>
+
+                    <a class="boton-explorar" href="#laboratorios">
+                        Explorar laboratorios
+                        <span>→</span>
+                    </a>
+                </div>
+
+                <div class="ilustracion-ciencia" aria-hidden="true">
+                    <div class="orbita orbita-uno"></div>
+                    <div class="orbita orbita-dos"></div>
+                    <div class="planeta-ciencia">✦</div>
+                    <div class="simbolo-ciencia simbolo-uno">⚡</div>
+                    <div class="simbolo-ciencia simbolo-dos">⚗</div>
+                    <div class="simbolo-ciencia simbolo-tres">+</div>
+                </div>
+            </section>
+
+            <section class="seccion-panel" id="laboratorios">
+                <div class="titulo-seccion">
+                    <div>
+                        <span class="sobrelinea">APRENDÉ EXPLORANDO</span>
+                        <h2>Mis laboratorios</h2>
+                        <p>Estos son los espacios disponibles en AulaLab.</p>
+                    </div>
+
+                    <span class="contador-laboratorios">02 espacios</span>
+                </div>
+
+                <div class="rejilla-laboratorios">
+
+                    <article class="tarjeta-laboratorio tarjeta-electronica">
+                        <div class="cabecera-tarjeta">
+                            <div class="icono-laboratorio icono-electronica">
+                                ⚡
+                            </div>
+                            <span class="etiqueta-laboratorio">CIENCIA Y TECNOLOGÍA</span>
+                        </div>
+
+                        <h3>Laboratorio de Electrónica</h3>
+
+                        <p>
+                            Explorá los fundamentos de los circuitos,
+                            los componentes electrónicos y las conexiones.
+                        </p>
+
+                        <div class="etiquetas-tema">
+                            <span>Circuitos</span>
+                            <span>Componentes</span>
+                        </div>
+
+                        <button
+                            class="boton-laboratorio"
+                            type="button"
+                            data-laboratorio="electronica">
+                            Explorar Electrónica
+                            <span>→</span>
+                        </button>
+                    </article>
+
+                    <article class="tarjeta-laboratorio tarjeta-quimica">
+                        <div class="cabecera-tarjeta">
+                            <div class="icono-laboratorio icono-quimica">
+                                ⚗
+                            </div>
+                            <span class="etiqueta-laboratorio">CIENCIAS NATURALES</span>
+                        </div>
+
+                        <h3>Laboratorio de Química</h3>
+
+                        <p>
+                            Conocé las sustancias, las propiedades de la materia
+                            y los conceptos esenciales de la química.
+                        </p>
+
+                        <div class="etiquetas-tema">
+                            <span>Materia</span>
+                            <span>Experimentos</span>
+                        </div>
+
+                        <button
+                            class="boton-laboratorio"
+                            type="button"
+                            data-laboratorio="quimica">
+                            Explorar Química
+                            <span>→</span>
+                        </button>
+                    </article>
+
+                </div>
+            </section>
+
+            <section class="seccion-panel" id="aprendizaje">
+                <div class="titulo-seccion">
+                    <div>
+                        <span class="sobrelinea">TU CAMINO ACADÉMICO</span>
+                        <h2>Mi aprendizaje</h2>
+                        <p>Tu espacio para seguir creciendo.</p>
+                    </div>
+                </div>
+
+                <div class="tarjeta-aprendizaje">
+                    <div class="aprendizaje-icono">▤</div>
+
+                    <div class="aprendizaje-texto">
+                        <h3>Tu progreso comienza aquí</h3>
+                        <p id="textoAprendizaje">
+                            Cuando conectemos las prácticas y evaluaciones,
+                            podrás consultar aquí tus avances y resultados.
+                        </p>
+                    </div>
+
+                    <span class="estado-progreso">En preparación</span>
+                </div>
+            </section>
+
+            <section class="seccion-panel" id="perfil">
+                <div class="titulo-seccion">
+                    <div>
+                        <span class="sobrelinea">TU CUENTA</span>
+                        <h2>Mi perfil</h2>
+                        <p>Información de tu sesión actual.</p>
+                    </div>
+                </div>
+
+                <div class="tarjeta-perfil">
+                    <div class="avatar-perfil" id="avatarPerfil">E</div>
+
+                    <div class="informacion-perfil">
+                        <h3 id="nombrePerfil">Cargando estudiante...</h3>
+                        <p id="correoPerfil">Cuenta de estudiante</p>
+                        <span class="insignia-rol">Estudiante AulaLab</span>
+                    </div>
+
+                    <div class="institucion-perfil">
+                        <span>INSTITUCIÓN</span>
+                        <strong id="nombreInstitucion">Por consultar</strong>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="pie-estudiante">
+                <span>
+                    <span class="punto-conexion"></span>
+                    AulaLab · Tu espacio de aprendizaje
+                </span>
+                <span>Aprender, explorar y descubrir.</span>
+            </footer>
+
+        </div>
+    </main>
+</div>
+
+<div class="fondo-menu-movil" id="fondoMenuMovil"></div>
+
+<div
+    class="modal-laboratorio"
+    id="modalLaboratorio"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="tituloModal"
+    hidden>
+
+    <div class="contenido-modal">
+        <button
+            class="cerrar-modal"
+            id="cerrarModal"
+            type="button"
+            aria-label="Cerrar ventana">
+            ×
+        </button>
+
+        <div class="modal-icono" id="iconoModal">⚗</div>
+        <span class="sobrelinea">ESPACIO DE APRENDIZAJE</span>
+        <h2 id="tituloModal">Laboratorio</h2>
+        <p id="descripcionModal"></p>
+
+        <div class="aviso-modal">
+            <span>ℹ</span>
+            <p>
+                Este acceso visual ya está preparado. En el siguiente paso
+                conectaremos las prácticas reales de este laboratorio.
+            </p>
+        </div>
+
+        <button class="boton-explorar boton-modal" id="aceptarModal" type="button">
+            Entrar al laboratorio
+        </button>
+    </div>
+</div>
+
+    <script src="js/tema-aulalab.js" defer></script>
+</body>
+</html>

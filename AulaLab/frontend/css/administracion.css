@@ -1,0 +1,121 @@
+.pagina-admin { min-height: 100vh; }
+
+.barra-admin {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px clamp(18px, 5vw, 64px);
+  background: #fff;
+  border-bottom: 1px solid var(--borde);
+}
+
+.barra-admin .marca { color: var(--texto); }
+.barra-admin nav { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+
+.admin-contenido {
+  width: min(900px, calc(100% - 32px));
+  margin: 38px auto 70px;
+}
+.admin-ancho { width: min(1180px, calc(100% - 32px)); }
+
+.encabezado-admin { margin-bottom: 28px; }
+.encabezado-admin h1 { margin: 10px 0; font-size: clamp(30px, 4vw, 43px); letter-spacing: -1.4px; }
+.encabezado-admin p, .texto-ayuda { color: var(--muted); line-height: 1.65; }
+.etiqueta { color: var(--azul); font-size: 12px; font-weight: 800; letter-spacing: 1.4px; }
+
+.tarjeta-admin {
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: clamp(18px, 3vw, 30px);
+  margin-bottom: 22px;
+  box-shadow: 0 8px 28px #17203308;
+}
+.tarjeta-admin h2 { margin: 0 0 8px; font-size: 21px; }
+.tarjeta-admin .campo { margin-top: 18px; }
+.campo textarea, .campo select {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--borde);
+  border-radius: 11px;
+  font: inherit;
+  color: var(--texto);
+  background: #fff;
+  resize: vertical;
+}
+.campo textarea:focus, .campo select:focus {
+  outline: 0;
+  border-color: var(--azul);
+  box-shadow: 0 0 0 3px #2563eb18;
+}
+
+.boton-secundario {
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--texto);
+  padding: 10px 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.boton-secundario:hover { background: #f3f6fc; }
+
+.mensaje.info { color: #31528a; background: #edf4ff; }
+.mensaje.exito { color: #166534; background: #dcfce7; }
+.mensaje.error { color: #991b1b; background: #fee2e2; }
+
+.resultado-solicitud { margin-top: 14px; }
+.resultado-solicitud:empty { display: none; }
+
+.titulo-fila { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.lista-solicitudes { display: grid; gap: 13px; margin-top: 18px; }
+.grupo-solicitudes { border-top: 1px solid var(--borde); padding-top: 16px; }
+.grupo-solicitudes h3 { margin: 0 0 10px; font-size: 16px; }
+
+.item-solicitud {
+  border: 1px solid var(--borde);
+  border-radius: 13px;
+  padding: 17px;
+  min-width: 0;
+}
+.item-solicitud h3 { margin: 0 0 9px; font-size: 17px; overflow-wrap: anywhere; }
+.item-solicitud p { margin: 8px 0 0; color: var(--muted); line-height: 1.5; overflow-wrap: anywhere; }
+.estado {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  background: #edf0f5;
+  color: #475569;
+}
+.estado-pending { background: #fff3cd; color: #805b00; }
+.estado-approved { background: #dcfce7; color: #166534; }
+.estado-rejected { background: #fee2e2; color: #991b1b; }
+
+.acciones-solicitud { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+.acciones-solicitud button { border: 0; border-radius: 9px; padding: 10px 14px; font-weight: 700; cursor: pointer; }
+.acciones-solicitud button:disabled { opacity: .6; cursor: wait; }
+.boton-aprobar { background: #dcfce7; color: #166534; }
+.boton-rechazar { background: #fee2e2; color: #991b1b; }
+.vacio { color: var(--muted); padding: 8px 0; }
+
+.resumen-admin { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-bottom: 22px; }
+.resumen-caja { padding: 20px; border: 1px solid var(--borde); border-radius: 14px; background: #fff; }
+.resumen-caja span { display: block; color: var(--muted); font-size: 13px; line-height: 1.4; }
+.resumen-caja strong { display: block; margin-top: 9px; font-size: 28px; }
+
+@media (max-width: 760px) {
+  .resumen-admin { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .barra-admin { align-items: flex-start; }
+  .barra-admin nav { justify-content: flex-end; }
+}
+@media (max-width: 480px) {
+  .barra-admin { flex-direction: column; }
+  .barra-admin nav { justify-content: flex-start; }
+  .resumen-admin { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .resumen-caja { padding: 14px; }
+  .resumen-caja strong { font-size: 23px; }
+  .titulo-fila { align-items: flex-start; flex-direction: column; }
+}

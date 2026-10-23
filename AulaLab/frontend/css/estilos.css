@@ -1,0 +1,249 @@
+:root {
+    --azul: #2563eb;
+    --azul-oscuro: #173b8f;
+    --fondo: #f3f6fc;
+    --texto: #172033;
+    --muted: #68758a;
+    --borde: #e1e7f0;
+    --blanco: #ffffff;
+    --radio: 18px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    color: var(--texto);
+    background: var(--fondo);
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: var(--azul);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 3px;
+}
+
+.contenedor-auth {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
+}
+
+.panel-presentacion {
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    background:
+        radial-gradient(circle at 85% 15%, #4f8cff 0, transparent 35%),
+        linear-gradient(145deg, #102b68, #2563eb 70%, #5685f6);
+}
+
+.marca {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.marca-icono {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.17);
+    font-size: 23px;
+}
+
+.presentacion-texto {
+    max-width: 540px;
+    margin: 50px auto;
+}
+
+.presentacion-texto h1 {
+    margin: 0 0 20px;
+    font-size: clamp(34px, 4vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -1.8px;
+}
+
+.presentacion-texto p {
+    color: #e0eaff;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.presentacion-pie {
+    color: #d7e4ff;
+    font-size: 13px;
+}
+
+.panel-formulario {
+    display: grid;
+    place-items: center;
+    padding: 36px 24px;
+}
+
+.formulario {
+    width: 100%;
+    max-width: 440px;
+}
+
+.formulario h2 {
+    margin: 0 0 10px;
+    font-size: 32px;
+    letter-spacing: -1px;
+}
+
+.descripcion {
+    margin: 0 0 28px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.campo {
+    margin-bottom: 18px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.campo input {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid var(--borde);
+    border-radius: 11px;
+    background: white;
+    color: var(--texto);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo input:focus {
+    border-color: var(--azul);
+    box-shadow: 0 0 0 3px #2563eb18;
+    outline: none;
+}
+
+.boton-principal {
+    width: 100%;
+    min-height: 49px;
+    border: 0;
+    border-radius: 11px;
+    background: var(--azul);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.boton-principal:hover {
+    background: var(--azul-oscuro);
+}
+
+.boton-principal:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+.mensaje {
+    display: none;
+    margin: 0 0 18px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.mensaje.visible {
+    display: block;
+}
+
+.mensaje.error {
+    color: #991b1b;
+    background: #fee2e2;
+}
+
+.mensaje.exito {
+    color: #166534;
+    background: #dcfce7;
+}
+
+.enlace-formulario {
+    margin-top: 22px;
+    color: var(--muted);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.nota-seguridad {
+    margin-top: 22px;
+    padding: 13px;
+    border-radius: 10px;
+    background: #edf4ff;
+    color: #31528a;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+@media (max-width: 850px) {
+    .contenedor-auth {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-presentacion {
+        padding: 25px;
+    }
+
+    .presentacion-texto {
+        margin: 35px 0 20px;
+    }
+
+    .presentacion-texto h1 {
+        font-size: 36px;
+    }
+
+    .presentacion-texto p {
+        font-size: 15px;
+    }
+
+    .presentacion-pie {
+        display: none;
+    }
+
+    .panel-formulario {
+        padding: 34px 22px;
+    }
+}

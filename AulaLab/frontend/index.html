@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AulaLab: plataforma educativa con recursos digitales y laboratorios virtuales.">
+    <title>AulaLab | Aprende, explora y crece</title>
+    <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/tema-aulalab.css">
+    <style>
+        .portada {
+            min-height: 100vh;
+            padding: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:
+                radial-gradient(circle at top right, #dbeafe, transparent 40%),
+                linear-gradient(135deg, #f8fbff, #eef4ff);
+        }
+
+        .portada-contenido {
+            width: 100%;
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .marca {
+            color: #2563eb;
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .portada h1 {
+            color: #14284b;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.05;
+            margin: 22px 0;
+        }
+
+        .portada h1 span {
+            color: #2563eb;
+        }
+
+        .descripcion {
+            color: #52627a;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 520px;
+        }
+
+        .acciones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+
+        .enlace-boton {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 14px 22px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .enlace-boton:hover {
+            transform: translateY(-2px);
+        }
+
+        .principal {
+            background: #2563eb;
+            color: white;
+            box-shadow: 0 8px 20px #2563eb30;
+        }
+
+        .secundario {
+            background: white;
+            color: #2563eb;
+            border: 1px solid #d7e3f7;
+        }
+
+        .tarjeta-portada {
+            background: rgba(255, 255, 255, .88);
+            border: 1px solid #e0eaff;
+            border-radius: 28px;
+            padding: 34px;
+            box-shadow: 0 24px 65px #1e3a8a12;
+        }
+
+        .icono-portada {
+            width: 76px;
+            height: 76px;
+            display: grid;
+            place-items: center;
+            border-radius: 22px;
+            background: #e8f0ff;
+            font-size: 2.5rem;
+            margin-bottom: 22px;
+        }
+
+        .tarjeta-portada h2 {
+            color: #14284b;
+            margin-bottom: 12px;
+        }
+
+        .caracteristica {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-top: 20px;
+            color: #52627a;
+            line-height: 1.6;
+        }
+
+        .caracteristica strong {
+            display: block;
+            color: #233a5d;
+        }
+
+        .check {
+            color: #2563eb;
+            font-weight: 800;
+        }
+
+        .pie {
+            color: #718096;
+            font-size: .9rem;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 760px) {
+            .portada {
+                padding: 22px 16px;
+            }
+
+            .portada-contenido {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .tarjeta-portada {
+                padding: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="boton-tema" type="button" data-cambiar-tema aria-label="Cambiar a modo claro">☀️ Modo claro</button>
+    <main class="portada">
+        <div class="portada-contenido">
+            <section>
+                <div class="marca">✦ AULALAB</div>
+
+                <h1>
+                    Aprende.<br>
+                    Explora.<br>
+                    <span>Descubre.</span>
+                </h1>
+
+                <p class="descripcion">
+                    Un espacio educativo para organizar el aprendizaje,
+                    explorar recursos digitales y acercarse a los
+                    laboratorios virtuales desde un solo lugar.
+                </p>
+
+                <div class="acciones">
+                    <a class="enlace-boton principal" href="login.html">
+                        Iniciar sesión
+                    </a>
+
+                    <a class="enlace-boton secundario" href="registro.html">
+                        Registro de docentes
+                    </a>
+                </div>
+
+                <p class="pie">
+                    AulaLab · Tecnología al servicio de la educación
+                </p>
+            </section>
+
+            <aside class="tarjeta-portada">
+                <div class="icono-portada">🎓</div>
+
+                <h2>El aprendizaje evoluciona</h2>
+
+                <p class="descripcion">
+                    AulaLab busca conectar a docentes, estudiantes
+                    e instituciones mediante herramientas digitales.
+                </p>
+
+                <div class="caracteristica">
+                    <span class="check">✓</span>
+                    <div>
+                        <strong>Recursos educativos</strong>
+                        Materiales para apoyar las actividades académicas.
+                    </div>
+                </div>
+
+                <div class="caracteristica">
+                    <span class="check">✓</span>
+                    <div>
+                        <strong>Laboratorios virtuales</strong>
+                        Un espacio para complementar el aprendizaje práctico.
+                    </div>
+                </div>
+
+                <div class="caracteristica">
+                    <span class="check">✓</span>
+                    <div>
+                        <strong>Gestión organizada</strong>
+                        Una plataforma que crecerá según el rol y los permisos
+                        de cada usuario.
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <script src="js/tema-aulalab.js" defer></script>
+</body>
+</html>

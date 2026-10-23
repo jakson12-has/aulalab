@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>Panel docente | AulaLab</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/tema-aulalab.css">
+  <link rel="stylesheet" href="css/docente.css">
+  <script src="js/confi.js" defer></script>
+  <script src="js/docente.js" defer></script>
+</head>
+<body class="docente-page">
+  <div class="docente-layout">
+    <header class="docente-header">
+      <a class="docente-brand" href="docente.html" aria-label="AulaLab, inicio docente">
+        <span class="brand-icon">A</span>
+        <span>AulaLab <small>Área docente</small></span>
+      </a>
+
+      <button id="btnMenuDocente" class="menu-toggle"
+        type="button" aria-label="Abrir menú" aria-expanded="false"
+        aria-controls="menuDocente">
+        <span></span><span></span><span></span>
+      </button>
+
+      <button class="boton-tema" type="button" data-cambiar-tema aria-label="Cambiar a modo claro">☀️ Modo claro</button>
+      <nav id="menuDocente" class="docente-nav" aria-label="Navegación principal">
+        <a class="nav-link active" href="docente.html">Panel principal</a>
+        <a class="nav-link" href="importar-estudiantes.html">Estudiantes</a>
+        <a class="nav-link" href="solicitar-administracion.html">Solicitudes y permisos</a>
+        <a class="nav-link" href="inicio.html">Mi cuenta</a>
+        <button id="btnCerrarSesion" class="nav-logout" type="button">
+          Cerrar sesión
+        </button>
+      </nav>
+    </header>
+
+    <div id="fondoMenu" class="menu-overlay" hidden></div>
+
+    <main class="docente-main">
+      <section class="welcome-panel">
+        <div class="welcome-copy">
+          <span class="eyebrow">TU ESPACIO DE ENSEÑANZA</span>
+          <h1>¡Hola, <span id="nombreDocente">docente</span>!</h1>
+          <p>Organizá tus actividades académicas y prepará tu espacio de aprendizaje.</p>
+        </div>
+        <div class="welcome-decoration" aria-hidden="true">
+          <span class="decoration-orbit orbit-one"></span>
+          <span class="decoration-orbit orbit-two"></span>
+          <span class="decoration-core">A</span>
+        </div>
+      </section>
+
+      <section class="section-heading">
+        <div>
+          <span class="eyebrow">ACCESO RÁPIDO</span>
+          <h2>¿Qué necesitás hacer?</h2>
+        </div>
+        <p>Entrá a una sección para continuar.</p>
+      </section>
+
+      <section class="teacher-grid" aria-label="Opciones docentes">
+        <article class="teacher-card card-students">
+          <div class="card-icon" aria-hidden="true">▤</div>
+          <span class="card-tag">GESTIÓN ACADÉMICA</span>
+          <h3>Estudiantes</h3>
+          <p>Prepará la lista de tu grupo y revisá el proceso de importación desde Excel.</p>
+          <a class="card-action" href="importar-estudiantes.html">
+            Abrir estudiantes <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="teacher-card card-permissions">
+          <div class="card-icon" aria-hidden="true">◇</div>
+          <span class="card-tag">AUTORIZACIONES</span>
+          <h3>Solicitudes y permisos</h3>
+          <p>Solicitá permisos institucionales y consultá el estado de tus peticiones.</p>
+          <a class="card-action" href="solicitar-administracion.html">
+            Ver solicitudes <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="teacher-card card-courses">
+          <div class="card-icon" aria-hidden="true">▦</div>
+          <span class="card-tag">ENSEÑANZA</span>
+          <h3>Cursos y actividades</h3>
+          <p>Accedé al área de cursos cuando los módulos correspondientes estén disponibles para tu cuenta.</p>
+          <a class="card-action" href="inicio.html">
+            Ir a mi cuenta <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="teacher-card card-account">
+          <div class="card-icon" aria-hidden="true">◎</div>
+          <span class="card-tag">TU PERFIL</span>
+          <h3>Mi cuenta</h3>
+          <p>Consultá el espacio general de AulaLab y continuá desde allí.</p>
+          <a class="card-action" href="inicio.html">
+            Abrir mi cuenta <span aria-hidden="true">→</span>
+          </a>
+        </article>
+      </section>
+
+      <section class="notice-panel">
+        <div class="notice-icon" aria-hidden="true">i</div>
+        <div>
+          <h2>Sobre los permisos institucionales</h2>
+          <p>El acceso a los datos de una institución depende de las autorizaciones verificadas por AulaLab. Crear una cuenta docente no concede automáticamente permisos de administración.</p>
+          <a href="solicitar-administracion.html">Consultar mis permisos →</a>
+        </div>
+      </section>
+
+      <section id="panelNotificacionesDocente"
+        class="notifications-panel" aria-labelledby="tituloNotificaciones">
+        <div class="notifications-heading">
+          <div>
+            <span class="eyebrow">AVISOS DE AULALAB</span>
+            <h2 id="tituloNotificaciones">Mis notificaciones
+              <span id="contadorNotificaciones" class="notification-count">0</span>
+            </h2>
+            <p>Consultá las actualizaciones de tus estudiantes.</p>
+          </div>
+          <button id="btnActualizarNotificaciones" type="button"
+            class="notification-refresh">Actualizar</button>
+        </div>
+        <p id="estadoNotificaciones" class="notification-status"
+          role="status" aria-live="polite">Cargando notificaciones...</p>
+        <div id="listaNotificaciones" class="notification-list"></div>
+      </section>
+
+      <footer class="docente-footer">
+        <span>AulaLab · Espacio de aprendizaje</span>
+        <span>Panel docente</span>
+      </footer>
+    </main>
+  </div>
+    <script src="js/tema-aulalab.js" defer></script>
+</body>
+</html>

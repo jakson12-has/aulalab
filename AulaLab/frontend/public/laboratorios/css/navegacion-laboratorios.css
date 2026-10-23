@@ -1,0 +1,290 @@
+/* AulaLab: navegación compartida de los laboratorios */
+
+body.pagina-estudiante {
+    --nav-fondo: #070b18;
+    --nav-superficie: #0d1626;
+    --nav-borde: #23324a;
+    --nav-texto: #edf4ff;
+    --nav-muted: #9aaac3;
+    margin: 0;
+    min-width: 0;
+    color: var(--nav-texto);
+}
+
+.panel-estudiante.panel-laboratorio {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+}
+
+.panel-laboratorio .barra-lateral {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 17px;
+    background: #091221;
+    border-right: 1px solid var(--nav-borde);
+    z-index: 60;
+}
+
+.panel-laboratorio .marca-estudiante {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 10px;
+    margin-bottom: 40px;
+    color: var(--nav-texto);
+    font-size: 23px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.panel-laboratorio .marca-icono {
+    display: grid;
+    place-items: center;
+    width: 43px;
+    height: 43px;
+    flex: 0 0 43px;
+    border-radius: 13px;
+    background: linear-gradient(135deg, #168bff, #55d9ff);
+    color: #071426;
+}
+
+.panel-laboratorio .etiqueta-menu {
+    padding: 0 12px;
+    margin-bottom: 12px;
+    color: #71839e;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.panel-laboratorio .menu-estudiante {
+    display: grid;
+    gap: 7px;
+}
+
+.panel-laboratorio .elemento-menu {
+    min-height: 47px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 13px;
+    border: 1px solid transparent;
+    border-radius: 11px;
+    color: var(--nav-muted);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .2s, color .2s;
+}
+
+.panel-laboratorio .elemento-menu:hover,
+.panel-laboratorio .elemento-menu.activo {
+    color: #eaf7ff;
+    background: linear-gradient(90deg, #122c49, #10233a);
+    border-color: #1a4165;
+}
+
+.panel-laboratorio .elemento-menu.activo {
+    box-shadow: inset 3px 0 #55d9ff;
+}
+
+.panel-laboratorio .icono-menu {
+    width: 23px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.panel-laboratorio .ayuda-lateral {
+    margin-top: auto;
+    padding: 17px;
+    border: 1px solid #203650;
+    border-radius: 13px;
+    background: #0d1b2d;
+}
+
+.panel-laboratorio .ayuda-icono {
+    color: #55d9ff;
+    font-size: 23px;
+}
+
+.panel-laboratorio .ayuda-lateral h3 {
+    margin: 10px 0 6px;
+    color: #edf4ff;
+    font-size: 14px;
+}
+
+.panel-laboratorio .ayuda-lateral p {
+    margin: 0;
+    color: #9aaac3;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.panel-laboratorio .boton-cerrar-sesion {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    border: 1px solid #34435a;
+    border-radius: 10px;
+    background: transparent;
+    color: #c5d3e7;
+    cursor: pointer;
+    text-align: left;
+}
+
+.panel-laboratorio .boton-cerrar-sesion:hover {
+    background: #17243a;
+    color: white;
+}
+
+.panel-laboratorio .contenido-estudiante {
+    min-width: 0;
+}
+
+.panel-laboratorio .encabezado-estudiante {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px 30px;
+    border-bottom: 1px solid var(--nav-borde);
+    background: #09111f;
+}
+
+.panel-laboratorio .ruta-actual {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    color: #8295b0;
+    font-size: 13px;
+}
+
+.panel-laboratorio .ruta-actual strong {
+    color: #e9f2ff;
+}
+
+.panel-laboratorio .usuario-encabezado {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.panel-laboratorio .avatar-estudiante {
+    display: grid;
+    flex: 0 0 41px;
+    width: 41px;
+    height: 41px;
+    place-items: center;
+    border: 1px solid #2979b4;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #1678cb, #16427a);
+    color: white;
+    font-weight: 800;
+}
+
+.panel-laboratorio .datos-encabezado {
+    display: grid;
+    gap: 3px;
+}
+
+.panel-laboratorio .datos-encabezado strong {
+    max-width: 190px;
+    overflow: hidden;
+    color: #eaf2ff;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.panel-laboratorio .datos-encabezado span {
+    color: var(--nav-muted);
+    font-size: 11px;
+}
+
+.panel-laboratorio .boton-menu-movil {
+    display: none;
+    padding: 8px 11px;
+    border: 1px solid var(--nav-borde);
+    border-radius: 9px;
+    background: var(--nav-superficie);
+    color: white;
+    cursor: pointer;
+}
+
+.fondo-menu-movil {
+    display: none;
+}
+
+.panel-laboratorio .contenido-principal.contenido-laboratorio {
+    min-width: 0;
+    padding: 20px;
+}
+
+@media (max-width: 760px) {
+    .panel-estudiante.panel-laboratorio {
+        display: block;
+    }
+
+    .panel-laboratorio .barra-lateral {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: min(285px, 84vw);
+        height: 100vh;
+        height: 100dvh;
+        overflow-y: auto;
+        transform: translateX(-105%);
+        transition: transform .25s ease;
+        box-shadow: 15px 0 45px #0005;
+    }
+
+    .panel-laboratorio .barra-lateral.menu-abierto {
+        transform: translateX(0);
+    }
+
+    .fondo-menu-movil.visible {
+        position: fixed;
+        z-index: 50;
+        inset: 0;
+        display: block;
+        background: #020711a8;
+    }
+
+    .panel-laboratorio .encabezado-estudiante {
+        min-height: 68px;
+        gap: 12px;
+        padding: 12px 16px;
+    }
+
+    .panel-laboratorio .boton-menu-movil {
+        display: block;
+        flex: 0 0 auto;
+    }
+
+    .panel-laboratorio .usuario-encabezado {
+        gap: 0;
+    }
+
+    .panel-laboratorio .datos-encabezado {
+        display: none;
+    }
+
+    .panel-laboratorio .contenido-principal.contenido-laboratorio {
+        padding: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .panel-laboratorio .barra-lateral,
+    .panel-laboratorio .elemento-menu {
+        transition: none;
+    }
+}

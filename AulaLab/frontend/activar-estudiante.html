@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#173b8f">
+    <title>Activar cuenta estudiantil | AulaLab</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/tema-aulalab.css">
+
+    <script src="js/confi.js" defer></script>
+    <script src="js/activar-estudiante.js" defer></script>
+</head>
+<body>
+    <main class="contenedor-auth">
+        <section class="panel-presentacion">
+            <a class="marca" href="index.html" style="color:white">
+                <span class="marca-icono">A</span>
+                AulaLab
+            </a>
+
+            <div class="presentacion-texto">
+                <h1>Tu camino de aprendizaje comienza aquí.</h1>
+                <p>
+                    Activá tu cuenta para ingresar a tus materias,
+                    actividades, proyectos y laboratorios educativos.
+                </p>
+            </div>
+
+            <div class="presentacion-pie">
+                AulaLab · Tu espacio de aprendizaje.
+            </div>
+        </section>
+
+        <section class="panel-formulario">
+            <form class="formulario" id="formActivar" autocomplete="on">
+                <h2>Activá tu cuenta</h2>
+
+                <p class="descripcion">
+                    Ingresá los datos que te entregó tu institución.
+                    Tu inscripción debe estar aprobada.
+                </p>
+
+                <div id="mensaje" class="mensaje"
+                     role="status" aria-live="polite"></div>
+
+                <div class="campo">
+                    <label for="nie">Número de Identificación Estudiantil (NIE)</label>
+                    <input
+                        id="nie"
+                        name="nie"
+                        type="text"
+                        maxlength="30"
+                        autocomplete="username"
+                        placeholder="Ingresá tu NIE"
+                        required>
+                </div>
+
+                <div class="campo">
+                    <label for="code">Código de activación</label>
+                    <input
+                        id="code"
+                        name="code"
+                        type="text"
+                        minlength="10"
+                        maxlength="10"
+                        pattern="[A-Fa-f0-9]{10}"
+                        autocomplete="one-time-code"
+                        placeholder="Ejemplo: A1B2C3D4E5"
+                        autocapitalize="characters"
+                        spellcheck="false"
+                        required>
+
+                    <small>
+                        Es un código de 10 caracteres hexadecimales.
+                    </small>
+                </div>
+
+                <div class="campo">
+                    <label for="password">Creá tu contraseña</label>
+                    <input
+                        id="password"
+                        name="password"
+                        type="password"
+                        minlength="10"
+                        maxlength="72"
+                        autocomplete="new-password"
+                        placeholder="Mínimo 10 bytes"
+                        required>
+                </div>
+
+                <div class="campo">
+                    <label for="confirmarPassword">Confirmá tu contraseña</label>
+                    <input
+                        id="confirmarPassword"
+                        name="confirmarPassword"
+                        type="password"
+                        minlength="10"
+                        maxlength="72"
+                        autocomplete="new-password"
+                        placeholder="Repetí tu contraseña"
+                        required>
+                </div>
+
+                <button class="boton-principal"
+                        id="btnActivar" type="submit">
+                    Activar mi cuenta
+                </button>
+
+                <div class="enlace-formulario">
+                    ¿Ya activaste tu cuenta?
+                    <a href="login.html">Iniciar sesión</a>
+                    <br>
+                    <a href="index.html">Volver al inicio</a>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

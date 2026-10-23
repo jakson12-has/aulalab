@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#173b8f">
+    <title>Iniciar sesión | AulaLab</title>
+    <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/tema-aulalab.css">
+    <script src="js/confi.js" defer></script>
+    <script src="js/login.js" defer></script>
+</head>
+<body>
+    <button class="boton-tema" type="button" data-cambiar-tema aria-label="Cambiar a modo claro">☀️ Modo claro</button>
+    <main class="contenedor-auth">
+        <section class="panel-presentacion">
+            <a class="marca" href="index.html" style="color:white">
+                <span class="marca-icono">A</span>
+                AulaLab
+            </a>
+
+            <div class="presentacion-texto">
+                <h1>El aprendizaje abre nuevas posibilidades.</h1>
+                <p>
+                    Ingresá a tu cuenta para continuar con tus actividades,
+                    tus laboratorios y las herramientas educativas de AulaLab.
+                </p>
+            </div>
+
+            <div class="presentacion-pie">
+                AulaLab · Tu espacio de aprendizaje.
+            </div>
+        </section>
+
+        <section class="panel-formulario">
+            <form class="formulario" id="formLogin">
+                <h2>¡Qué bueno verte!</h2>
+                <p class="descripcion">
+                    Ingresá tus credenciales para continuar.
+                </p>
+
+                <div id="mensaje" class="mensaje" role="status"
+                     aria-live="polite"></div>
+
+                <div class="campo">
+    <label for="email">Correo electrónico o NIE</label>
+    <input id="email" name="email" type="text"
+           autocomplete="username"
+           placeholder="Ingresá tu correo o NIE"
+           required>
+</div>
+
+                <div class="campo">
+                    <label for="password">Contraseña</label>
+                    <input id="password" name="password"
+                           type="password"
+                           autocomplete="current-password" required>
+                </div>
+
+                <button class="boton-principal" id="btnLogin" type="submit">
+                    Iniciar sesión
+                </button>
+
+                <a href="registro.html">Registrarme</a>
+<br>
+<a href="activar-estudiante.html">Activar cuenta de estudiante</a>
+<br>
+<a href="index.html">Volver al inicio</a>
+            </form>
+        </section>
+    </main>
+    <script src="js/tema-aulalab.js" defer></script>
+</body>
+</html>
