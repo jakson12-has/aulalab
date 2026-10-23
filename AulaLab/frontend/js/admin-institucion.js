@@ -61,6 +61,13 @@
       avisar("Tu cuenta todavía no tiene una vinculación activa como administrador de una institución. Solicitá la aprobación correspondiente.", "warning");
       return;
     }
+
+    // Si solo hay una institución autorizada, seleccionarla automáticamente.
+    // Así la lista de docentes carga al entrar sin exigir otro clic.
+    if (permitidas.length === 1) {
+      selector.value = String(permitidas[0].id);
+    }
+
     ocultarAviso();
     await cargarDocentes();
   }
