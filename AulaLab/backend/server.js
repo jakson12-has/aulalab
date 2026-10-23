@@ -216,8 +216,20 @@ app.post("/api/registro", async (req, res) => {
             });
         }
 
+        const [roles] = await db.execute(
+            "SELECT id FROM roles WHERE name = ? LIMIT 1",
+            [tipoUsuario]
+        );
+
+        if (!roles.length) {
+            return res.status(500).json({
+                ok: false,
+                mensaje: "El rol seleccionado no está configurado en AulaLab."
+            });
+        }
+
         const passwordHash = await bcrypt.hash(password, 12);
-        const globalRoleId = tipoUsuario === "teacher" ? 2 : 1;
+        const globalRoleId = roles[0].id;
 
         const [resultado] = await db.execute(
             `INSERT INTO users
