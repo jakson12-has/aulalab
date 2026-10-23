@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
-    "check": "node --check server.js && node --check rutas-estudiantes.js && node --check rutas-progreso.js && node --check rutas-asignaciones.js"
+    "check": "node --check server.js && node --check database.js && node --check rutas-estudiantes.js && node --check rutas-progreso.js && node --check rutas-asignaciones.js"
   },
   "keywords": [],
   "author": "",

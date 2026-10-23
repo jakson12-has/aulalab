@@ -88,7 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             form.reset();
             mostrarMensaje(
-                "¡Tu cuenta docente fue creada! Ahora podés iniciar sesión.",
+                datos.mensaje ||
+                "¡Tu cuenta docente fue creada! Ahora debe aprobarla el administrador global antes de que podás iniciar sesión.",
                 "exito"
             );
 

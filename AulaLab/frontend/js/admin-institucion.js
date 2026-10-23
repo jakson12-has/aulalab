@@ -41,14 +41,18 @@
       return;
     }
     const datos = await api("/api/me");
-    if (datos.usuario?.rol !== "institution_admin" && datos.usuario?.rol !== "platform_admin") {
-      avisar("Tu cuenta no tiene el rol de administración institucional.", "warning");
+    const permitidas = (datos.instituciones || []).filter(i =>
+      String(i.rol || "").toLowerCase() === "institution_admin" &&
+      Number(i.is_active) === 1
+    );
+    const esAdminGlobal =
+      String(datos.usuario?.rol || "").toLowerCase() === "platform_admin";
+
+    if (!esAdminGlobal && permitidas.length === 0) {
+      avisar("Tu cuenta no tiene permisos activos de administración institucional.", "warning");
       selector.replaceChildren(new Option("Sin permisos", ""));
       return;
     }
-    const permitidas = (datos.instituciones || []).filter(i =>
-      i.rol === "institution_admin" && Number(i.is_active) === 1
-    );
     selector.replaceChildren(new Option(
       permitidas.length ? "Seleccioná una institución" : "No tenés instituciones administrables", ""
     ));
