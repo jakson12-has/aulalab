@@ -247,3 +247,111 @@ a:focus-visible {
         padding: 34px 22px;
     }
 }
+
+/* =========================================================
+   AULALAB — PULIDO RESPONSIVE Y ACCESIBILIDAD
+   Capa complementaria: no elimina reglas ni clases existentes.
+   ========================================================= */
+
+:root {
+    --aulalab-focus: 0 0 0 4px rgb(37 99 235 / 16%);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 84px;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+:where(button, input, select, textarea, a) {
+    -webkit-tap-highlight-color: transparent;
+}
+
+:where(button, input, select, textarea, a):focus-visible {
+    outline: 3px solid #60a5fa;
+    outline-offset: 3px;
+}
+
+:where(input, select, textarea) {
+    max-width: 100%;
+}
+
+:where(input, select, textarea):focus-visible {
+    box-shadow: var(--aulalab-focus);
+}
+
+:where(button, .boton-principal, .boton-secundario) {
+    touch-action: manipulation;
+}
+
+:where(.tarjeta, .card, .tarjeta-admin, .resumen-caja,
+       .docente-card, .docente-panel, .tarjeta-estudiante) {
+    overflow-wrap: anywhere;
+}
+
+img, video, iframe {
+    max-width: 100%;
+}
+
+table {
+    max-width: 100%;
+}
+
+@media (max-width: 850px) {
+    .contenedor-auth {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .panel-presentacion {
+        min-width: 0;
+    }
+
+    .panel-formulario {
+        min-width: 0;
+        padding: 24px 16px;
+    }
+
+    .formulario {
+        min-width: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .presentacion-texto h1 {
+        font-size: clamp(1.8rem, 8vw, 2.4rem);
+        letter-spacing: -0.04em;
+    }
+
+    .formulario h2 {
+        font-size: clamp(1.55rem, 7vw, 2rem);
+    }
+
+    .campo input {
+        min-height: 48px;
+    }
+
+    .boton-principal {
+        min-height: 48px;
+    }
+
+    :where(.tarjeta, .card, .tarjeta-admin, .resumen-caja) {
+        max-width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
