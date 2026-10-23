@@ -39,7 +39,7 @@ SET @sql = IF((SELECT COUNT(*) FROM information_schema.STATISTICS WHERE TABLE_SC
   'SELECT "Índice uq_users_student_nie ya existe" AS resultado');
 PREPARE stmt FROM @sql; EXECUTE stmt; DEALLOCATE PREPARE stmt;
 
--- Datos adicionales de inscripción y aprobación de estudiantes.
+-- Datos adicionales de inscripción y aprobación de estudiantes.\n-- La migración marca las inscripciones existentes como aprobadas para no bloquear\n-- cuentas previas; el flujo nuevo escribe 'pending' explícitamente al inscribir.
 SET @sql = IF((SELECT COUNT(*) FROM information_schema.COLUMNS WHERE TABLE_SCHEMA=@db_name AND TABLE_NAME='students' AND COLUMN_NAME='registered_by')=0,
   'ALTER TABLE students ADD COLUMN registered_by INT NULL',
   'SELECT "students.registered_by ya existe" AS resultado');
@@ -56,7 +56,7 @@ SET @sql = IF((SELECT COUNT(*) FROM information_schema.COLUMNS WHERE TABLE_SCHEM
 PREPARE stmt FROM @sql; EXECUTE stmt; DEALLOCATE PREPARE stmt;
 
 SET @sql = IF((SELECT COUNT(*) FROM information_schema.COLUMNS WHERE TABLE_SCHEMA=@db_name AND TABLE_NAME='students' AND COLUMN_NAME='approval_status')=0,
-  "ALTER TABLE students ADD COLUMN approval_status ENUM('pending','approved','rejected') NOT NULL DEFAULT 'pending'",
+  "ALTER TABLE students ADD COLUMN approval_status ENUM('pending','approved','rejected') NOT NULL DEFAULT 'approved'",
   'SELECT "students.approval_status ya existe" AS resultado');
 PREPARE stmt FROM @sql; EXECUTE stmt; DEALLOCATE PREPARE stmt;
 
