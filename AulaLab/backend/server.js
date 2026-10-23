@@ -1975,18 +1975,24 @@ app.post(
                 [estudiante.user_id]
             );
 
+            // Mantener sincronizado el estado de la inscripción y el de la cuenta.
+            // Todo queda dentro de la misma transacción: si falla una operación,
+            // no se confirma un rechazo parcial.
             await conexion.execute(
                 `UPDATE users
-                 SET is_active = 0
+                 SET approval_status = 'rejected',
+                     rejection_reason = ?,
+                     is_active = 0,
+                     updated_at = NOW()
                  WHERE id = ?`,
-                [estudiante.user_id]
+                [motivo, estudiante.user_id]
             );
 
             await conexion.commit();
 
             res.json({
                 ok: true,
-                mensaje: "Inscripción rechazada y código de activación invalidado."
+                mensaje: "Inscripción rechazada, cuenta bloqueada y código de activación invalidado."
             });
         } catch (error) {
             if (conexion) await conexion.rollback();
