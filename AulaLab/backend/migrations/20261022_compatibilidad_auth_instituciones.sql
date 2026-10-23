@@ -65,6 +65,16 @@ SET @sql = IF((SELECT COUNT(*) FROM information_schema.COLUMNS WHERE TABLE_SCHEM
   'SELECT "students.rejection_reason ya existe" AS resultado');
 PREPARE stmt FROM @sql; EXECUTE stmt; DEALLOCATE PREPARE stmt;
 
+SET @sql = IF((SELECT COUNT(*) FROM information_schema.COLUMNS WHERE TABLE_SCHEMA=@db_name AND TABLE_NAME='students' AND COLUMN_NAME='reviewed_by')=0,
+  'ALTER TABLE students ADD COLUMN reviewed_by INT NULL',
+  'SELECT "students.reviewed_by ya existe" AS resultado');
+PREPARE stmt FROM @sql; EXECUTE stmt; DEALLOCATE PREPARE stmt;
+
+SET @sql = IF((SELECT COUNT(*) FROM information_schema.COLUMNS WHERE TABLE_SCHEMA=@db_name AND TABLE_NAME='students' AND COLUMN_NAME='reviewed_at')=0,
+  'ALTER TABLE students ADD COLUMN reviewed_at DATETIME NULL',
+  'SELECT "students.reviewed_at ya existe" AS resultado');
+PREPARE stmt FROM @sql; EXECUTE stmt; DEALLOCATE PREPARE stmt;
+
 -- Códigos de activación: solo se almacena el hash del código, nunca el código en claro.
 CREATE TABLE IF NOT EXISTS student_activation_codes (
     id INT AUTO_INCREMENT PRIMARY KEY,
